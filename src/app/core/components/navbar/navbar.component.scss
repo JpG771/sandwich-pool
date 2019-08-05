@@ -1,0 +1,24 @@
+@import "../../../../sass/variables";
+
+:host {
+  background-color: map-get($map: $third_color, $key: 500);
+  color: map-get($map: $third_color, $key: 900);
+  display: block;
+}
+
+nav [class^="section-"] {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1.2em;
+  line-height: 1.2em;
+
+  &.section-logo {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    
+    .logo {
+      height: 1.4em;
+      margin-top: -0.2em;
+    }
+  }
+}

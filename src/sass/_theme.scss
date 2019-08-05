@@ -1,0 +1,65 @@
+@import '~@angular/material/theming';
+@import './variables';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+$primary: mat-palette($primary_color);
+$accent:  mat-palette($secondary_color);
+
+// The warn palette is optional (defaults to red).
+$warn:    mat-palette($warn_color);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: (
+  primary: $primary,
+  accent: $accent,
+  warn: $warn,
+  is-dark: false,
+  foreground: (
+    base:              black,
+    divider:           $dark-dividers,
+    dividers:          $dark-dividers,
+    disabled:          $dark-disabled-text,
+    disabled-button:   rgba(black, 0.26),
+    disabled-text:     $dark-disabled-text,
+    elevation:         black,
+    hint-text:         $dark-disabled-text,
+    secondary-text:    $dark-secondary-text,
+    icon:              rgba(black, 0.54),
+    icons:             rgba(black, 0.54),
+    text:              rgba(black, 0.87),
+    slider-min:        rgba(black, 0.87),
+    slider-off:        rgba(black, 0.26),
+    slider-off-active: rgba(black, 0.38),
+  ),
+  background: (
+    status-bar: map_get($mat-grey, 300),
+    app-bar:    map_get($primary, 100),
+    background: map_get($primary, 50),
+    hover:      rgba(black, 0.04),
+    card:       white,
+    dialog:     white,
+    disabled-button: rgba(black, 0.12),
+    raised-button: white,
+    focused-button: $dark-focused,
+    selected-button: map_get($mat-grey, 300),
+    selected-disabled-button: map_get($mat-grey, 400),
+    disabled-button-toggle: map_get($mat-grey, 200),
+    unselected-chip: map_get($mat-grey, 300),
+    disabled-list-option: map_get($mat-grey, 200),
+  ),
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+
+// Typography
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+@include angular-material-typography(mat-typography-config(
+  $font-family: 'Montserrat, "Helvetica Neue", sans-serif'
+));

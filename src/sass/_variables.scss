@@ -1,0 +1,102 @@
+$dark-primary-text: #4C3B27;
+$light-primary-text: #F4EBD0;
+
+$primary_color: (
+  50: #F4EBD0,
+  100: #F4EBD0,
+  200: #F4EBD0,
+  300: #FBEEC1,
+  400: #FBEEC1,
+  500: #FBEEC1,
+  600: #FBEEC1,
+  700: #BFB492,
+  800: #BFB492,
+  900: #BFB492,
+  A100: #FBEEC1,
+  A200: #FBEEC1,
+  A400: #FBEEC1,
+  A700: #FBEEC1,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$secondary_color: (
+  100: #FFCBA0,
+  500: #DAAD86,
+  700: #A68565,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$warn_color: (
+  100: #C15E4D,
+  500: #C15E4D,
+  700: #C15E4D,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$third_color: (
+  100: #FFCBA0,
+  500: #BC986A,
+  700: #91714B,
+  900: #4C3B27,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);

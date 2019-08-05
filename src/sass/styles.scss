@@ -1,0 +1,10 @@
+@import './theme';
+@import './mixins';
+
+body {
+  margin: 0;
+}
+
+mat-sidenav-content.mat-drawer-content {
+  height: 100vh;
+}

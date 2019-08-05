@@ -25,10 +25,11 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/site.webmanifest"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss"
             ],
             "scripts": []
           },
