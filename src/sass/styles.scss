@@ -8,3 +8,9 @@ body {
 mat-sidenav-content.mat-drawer-content {
   height: 100vh;
 }
+
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+  &.primary-button {
+    @include color_button($warn_color, $light-primary-text);
+  }
+}

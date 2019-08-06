@@ -1,0 +1,67 @@
+<h1>{{ currentSandwich && currentSandwich.id ? 'Edit' : 'Add' }} a Sandwich</h1>
+
+<form *ngIf="currentSandwich; else sandwichLoading" (ngSubmit)="onSubmit()" #sandwichForm="ngForm">
+  <mat-form-field class="title">
+    <input matInput placeholder="Title" required
+      id="titleInput" name="titleInput"
+      [(ngModel)]="currentSandwich.title" #title="ngModel">
+    <mat-hint>Short description</mat-hint>
+    <mat-error *ngIf="!title.valid">Title is required</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="type">
+    <mat-select placeholder="Sandwich type" required
+        id="typeInput" name="typeInput"
+        [(ngModel)]="currentSandwich.type" #type="ngModel">
+      <mat-option value="Sandwich">Sandwich</mat-option>
+      <mat-option value="Sandwich">Gourmet</mat-option>
+      <mat-option value="Sandwich">Drink</mat-option>
+      <mat-option value="Sandwich">Vegetarian</mat-option>
+    </mat-select>
+    <mat-hint>Kind of meal offered</mat-hint>
+    <mat-error *ngIf="!type.valid && !type.pristine">Sandwich type is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="description">
+    <textarea matInput placeholder="Description" rows="4"
+      id="descriptionInput" name="descriptionInput"
+      [(ngModel)]="currentSandwich.description" #description="ngModel">
+    </textarea>
+    <mat-hint>Long description of what is offered</mat-hint>
+  </mat-form-field>
+  
+  <div class="price">
+    <mat-form-field>
+      <input matInput placeholder="Price" required
+        id="priceInput" name="priceInput"
+        [(ngModel)]="currentSandwich.price" #price="ngModel">
+      <mat-error *ngIf="!price.valid">Price is required</mat-error>
+      <mat-hint>0 = Free</mat-hint>
+    </mat-form-field>
+    <mat-slider min="0" max="100" step="5" thumbLabel
+      id="priceSliderInput" name="priceSliderInput"
+      (change)="onSliderChanged($event)">
+    </mat-slider>      
+  </div>
+
+  <mat-form-field class="quantity">
+    <input matInput placeholder="Quantity" required
+      id="quantityInput" name="quantityInput"
+      [(ngModel)]="currentSandwich.quantity" #quantity="ngModel">
+    <mat-hint>The number of portions or plates available.</mat-hint>
+    <mat-error *ngIf="!quantity.valid">Quantity is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="image">
+    <input matInput placeholder="Image"
+      id="imageInput" name="imageInput"
+      [(ngModel)]="currentSandwich.thumbnail" #thumbnail="ngModel">
+    <mat-hint>Link to your image of the sandwich</mat-hint>
+  </mat-form-field>
+
+  <button type="submit" class="action primary-button" mat-raised-button [disabled]="!sandwichForm.form.valid">Submit</button>
+</form>
+
+<ng-template #sandwichLoading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>

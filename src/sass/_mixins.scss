@@ -5,3 +5,12 @@
   -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
+
+@mixin color_button($color, $text-color: $dark-primary-text) {
+  background-color: map-get($color, 500 );
+  color: $text-color;
+
+  &:hover {
+    background-color: map-get($color, 700 );
+  }
+}
