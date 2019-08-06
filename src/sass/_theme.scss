@@ -6,7 +6,7 @@
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
 
-$primary: mat-palette($primary_color);
+$primary: mat-palette($third_color);
 $accent:  mat-palette($secondary_color);
 
 // The warn palette is optional (defaults to red).
@@ -37,8 +37,8 @@ $app-theme: (
   ),
   background: (
     status-bar: map_get($mat-grey, 300),
-    app-bar:    map_get($primary, 100),
-    background: map_get($primary, 50),
+    app-bar:    map_get($primary_color, 100),
+    background: map_get($primary_color, 50),
     hover:      rgba($dark-primary-text, 0.04),
     card:       map-get($primary_color, 500),
     dialog:     map-get($primary_color, 500),

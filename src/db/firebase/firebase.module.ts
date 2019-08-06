@@ -6,14 +6,21 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgModule } from '@angular/core';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GestureConfig } from '@angular/material';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { FirebaseRoutingModule } from './firebase.routing';
+import { FirebaseLoginComponent } from './components/firebase-login/firebase-login.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FirebaseLoginComponent
+  ],
   imports: [
+    NgxAuthFirebaseUIModule.forRoot(firebaseConfig, () => 'Sandwich Pooling'),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
+    FirebaseRoutingModule
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
