@@ -1,9 +1,9 @@
+import { Entity } from 'src/app/core/models/entity';
+
 /**
  * A Sandwich is meal that can be shared.
  */
-export interface Sandwich {
-  // Unique identifier for the sandwich.
-  id?: string;
+export interface Sandwich extends Entity {
   // Who is offering this sandwich.
   userId: string;
   // Short title to represent the sandwich and quickly know what is offered.

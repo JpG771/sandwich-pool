@@ -7,6 +7,7 @@ import { FakeReservationService } from 'src/db/fakeData/reservation.service';
 
 export const environment = {
   production: false,
+  additionnalModules: [],
   sandwichService: FakeSandwichService,
   reservationService: FakeReservationService
 };

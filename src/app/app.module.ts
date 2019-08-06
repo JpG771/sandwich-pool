@@ -7,8 +7,8 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AboutComponent } from './core/components/about/about.component';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { GestureConfig } from '@angular/material';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AboutComponent,
@@ -21,10 +21,9 @@ import { GestureConfig } from '@angular/material';
     BrowserModule,
     MatButtonModule,
     MatSidenavModule,
+    ...environment.additionnalModules
   ],
-  providers: [
-    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
-  ],
+  providers: [],
   bootstrap: [HomeComponent]
 })
 export class AppModule { }
