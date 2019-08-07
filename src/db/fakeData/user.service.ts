@@ -12,6 +12,13 @@ export class FakeUserService implements UserService {
       observer.complete();
     });
   }
+
+  getUserId(): Observable<string> {
+    return new Observable((observer: Observer<string>) => {
+      observer.next('12309joijoajd109201');
+      observer.complete();
+    });
+  }
   getUserName(): Observable<string> {
     return new Observable((observer: Observer<string>) => {
       observer.next('Bob');

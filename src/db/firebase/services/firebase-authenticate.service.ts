@@ -19,6 +19,12 @@ export class FirebaseAuthenticateService implements UserService {
     );
   }
 
+  getUserId(): Observable<string> {
+    return this.authService.user.pipe(
+      filter(user => user !== null && user !== undefined),
+      map(user => user.uid)
+    );
+  }
   getUserName(): Observable<string> {
     return this.authService.user.pipe(
       filter(user => user !== null && user !== undefined),
