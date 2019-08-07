@@ -30,8 +30,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSliderModule,
   ],
   providers: [
-    { provide: SANDWICH_SERVICE_TOKEN_NAME, useClass: environment.sandwichService },
-    { provide: RESERVATION_SERVICE_TOKEN_NAME, useClass: environment.reservationService },
+    { provide: SANDWICH_SERVICE_TOKEN_NAME, useClass: environment.services.sandwichService },
+    { provide: RESERVATION_SERVICE_TOKEN_NAME, useClass: environment.services.reservationService },
   ]
 })
 export class SandwichModule { }

@@ -1,0 +1,7 @@
+<ngx-auth-firebaseui-avatar *ngIf="loggedIn | async; else logoutTemplate"
+  (onSignOut)="onSignOut()"  
+></ngx-auth-firebaseui-avatar>
+
+<ng-template #logoutTemplate>
+  <a mat-button routerLink="/login">Login</a>
+</ng-template>

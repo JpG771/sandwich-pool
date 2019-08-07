@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FirebaseLoginComponent } from './components/firebase-login/firebase-login.component';
-import { NgxAuthFirebaseuiAvatarComponent } from 'ngx-auth-firebaseui';
+import { FirebaseAvatarComponent } from './components/firebase-avatar/firebase-avatar.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: NgxAuthFirebaseuiAvatarComponent,
+    component: FirebaseAvatarComponent,
     outlet: 'avatar'
   }
 ];

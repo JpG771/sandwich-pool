@@ -3,14 +3,14 @@ import { ReservationService } from 'src/app/sandwich/models/reservation-service'
 import { Observable } from 'rxjs';
 import { Reservation } from 'src/app/sandwich/models/reservation';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BaseFirebaseService } from './base-firebase.service.spec';
+import { BaseFirestoreService } from './base-firestore.service';
 import { map } from 'rxjs/operators';
 import { setObjectId } from '../utils/firebase.util';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseReservationService extends BaseFirebaseService<Reservation> implements ReservationService {
+export class FirebaseReservationService extends BaseFirestoreService<Reservation> implements ReservationService {
 
   private static COLLECTION_NAME = 'reservation';
 

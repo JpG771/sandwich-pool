@@ -1,5 +1,6 @@
 import { FakeSandwichService } from 'src/db/fakeData/sandwich.service';
 import { FakeReservationService } from 'src/db/fakeData/reservation.service';
+import { FakeUserService } from 'src/db/fakeData/user.service';
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -8,8 +9,13 @@ import { FakeReservationService } from 'src/db/fakeData/reservation.service';
 export const environment = {
   production: false,
   additionnalModules: [],
-  sandwichService: FakeSandwichService,
-  reservationService: FakeReservationService
+  services: {
+    sandwichService: FakeSandwichService,
+    reservationService: FakeReservationService,
+    userService: FakeUserService
+  },
+  contactEmail: 'fill this information',
+  domain: 'localhost:4200',
 };
 
 /*

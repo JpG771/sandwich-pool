@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { setObjectId } from '../utils/firebase.util';
 import { Entity } from 'src/app/core/models/entity';
 
-export class BaseFirebaseService<T extends Entity> {
+export class BaseFirestoreService<T extends Entity> {
 
   protected itemsCollection: AngularFirestoreCollection<T>;
 

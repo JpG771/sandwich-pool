@@ -1,3 +1,7 @@
 <ngx-auth-firebaseui [guestEnabled]="false" 
-    [providers]="providers">
+    [providers]="providers"
+    tosUrl="tos"
+    privacyPolicyUrl="privacy-policy"
+    (onSuccess)="onLoginSuccess()"
+  >
 </ngx-auth-firebaseui>
