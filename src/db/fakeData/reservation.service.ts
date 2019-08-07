@@ -28,6 +28,13 @@ export class FakeReservationService implements ReservationService {
       observer.complete();
     });
   }
+  getAllForUser(userId: string): Observable<Array<Reservation>> {
+    return new Observable((observer: Observer<Array<Reservation>>) => {
+      observer.next(this.reservations.filter(reservation => reservation.userId === userId));
+      observer.complete();
+    });
+  }
+
   add(reservation: Reservation): Observable<Reservation> {
     this.currentId = this.currentId + 1;
     const newReservation = {

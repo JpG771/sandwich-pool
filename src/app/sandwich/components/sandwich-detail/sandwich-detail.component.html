@@ -32,7 +32,7 @@
   
   <div class="price">
     <mat-form-field>
-      <input matInput placeholder="Price" required
+      <input type="number" matInput placeholder="Price" required
         id="priceInput" name="priceInput"
         [(ngModel)]="currentSandwich.price" #price="ngModel">
       <mat-error *ngIf="!price.valid">Price is required</mat-error>
@@ -40,12 +40,13 @@
     </mat-form-field>
     <mat-slider min="0" max="100" step="5" thumbLabel
       id="priceSliderInput" name="priceSliderInput"
+      [value]="currentSandwich.price"
       (change)="onSliderChanged($event)">
     </mat-slider>      
   </div>
 
   <mat-form-field class="quantity">
-    <input matInput placeholder="Quantity" required
+    <input type="number" matInput placeholder="Quantity" required
       id="quantityInput" name="quantityInput"
       [(ngModel)]="currentSandwich.quantity" #quantity="ngModel">
     <mat-hint>The number of portions or plates available.</mat-hint>

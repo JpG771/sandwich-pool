@@ -1,0 +1,76 @@
+<h2>Filtering</h2>
+
+<form *ngIf="sandwichFilters" (ngSubmit)="onSubmit()" #filtersForm="ngForm">
+  <mat-form-field class="title">
+    <input matInput placeholder="Title"
+      id="titleInput" name="titleInput"
+      [(ngModel)]="sandwichFilters.title" #title="ngModel">
+  </mat-form-field>
+  
+  <mat-form-field class="type">
+    <mat-select placeholder="Sandwich type" multiple
+        id="typeInput" name="typeInput"
+        [(ngModel)]="sandwichFilters.type" #type="ngModel">
+      <mat-option value="Sandwich">Sandwich</mat-option>
+      <mat-option value="Sandwich">Gourmet</mat-option>
+      <mat-option value="Sandwich">Drink</mat-option>
+      <mat-option value="Sandwich">Vegetarian</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <div class="price">
+    <mat-form-field>
+      <input type="number" matInput placeholder="Minimum Price"
+        id="minPriceInput" name="minPriceInput"
+        [(ngModel)]="sandwichFilters.minPrice" #minPrice="ngModel">
+    </mat-form-field>
+    <mat-slider min="0" max="100" step="5" thumbLabel
+      id="minPriceSliderInput" name="minPriceSliderInput"
+      [value]="sandwichFilters.minPrice"
+      (change)="onMinPriceChanged($event)">
+    </mat-slider>
+  </div>
+  <div class="max-price">
+    <mat-form-field>
+      <input type="number" matInput placeholder="Maximum Price"
+        id="maxPriceInput" name="maxPriceInput"
+        [(ngModel)]="sandwichFilters.maxPrice" #maxPrice="ngModel">
+    </mat-form-field>
+    <mat-slider min="0" max="100" step="5" thumbLabel
+      id="maxPriceSliderInput" name="maxPriceSliderInput"
+      [value]="sandwichFilters.maxPrice"
+      (change)="onMaxPriceChanged($event)">
+    </mat-slider>
+  </div>
+
+  <mat-form-field class="quantity">
+    <input type="number" matInput placeholder="Minimum quantity"
+      id="quantityInput" name="quantityInput"
+      [(ngModel)]="sandwichFilters.quantity" #quantity="ngModel">
+  </mat-form-field>
+
+  <mat-checkbox id="showReserved" name="showReserved"
+      [(ngModel)]="sandwichFilters.showReserved" #showReserved="ngModel">
+    Show reserved sandwiches
+  </mat-checkbox>
+
+  <mat-checkbox id="showMine" name="showMine"
+      [(ngModel)]="sandwichFilters.showMine" #showMine="ngModel">
+    Show my sandwiches
+  </mat-checkbox>
+
+  <mat-form-field class="tag">
+    <mat-select placeholder="Tags" multiple
+        id="tagInput" name="tagInput"
+        [(ngModel)]="sandwichFilters.tags" #type="ngModel">
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="user">
+    <input matInput placeholder="From user"
+      id="userInput" name="userInput"
+      [(ngModel)]="sandwichFilters.userId" #user="ngModel">
+  </mat-form-field>
+
+  <button type="submit" class="action" mat-raised-button>Filter</button>
+</form>

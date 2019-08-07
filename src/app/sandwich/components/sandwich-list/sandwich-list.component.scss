@@ -1,13 +1,25 @@
 @import "../../../../sass/variables";
 @import "../../../../sass/mixins";
 
-:host {
+.list {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  align-items: self-start;
+  grid-auto-flow: dense;
 }
 
 .item {
-  max-width: 20em;
+  overflow: hidden;
   margin: 1em;
+
+  .thumbnail {
+    margin: -16px;
+    margin-bottom: 1em;
+    width: 110%;
+    height: auto;
+    max-height: 25em;
+    object-fit: cover;
+  }
 
   .action {
     text-align: right;

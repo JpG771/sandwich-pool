@@ -1,15 +1,22 @@
-<ng-container *ngFor="let sandwich of (sandwiches$ | async)">
-  <mat-card class="item">  
-    <img *ngIf="sandwich.thumbnail" [src]="sandwich.thumbnail" mat-card-md-image>
-    <mat-card-header>
-      <div mat-card-avatar class="avatar"></div>
-      <mat-card-title>{{ sandwich.title }}</mat-card-title>
-      <mat-card-subtitle>{{ sandwich.type }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>{{ sandwich.description }}</mat-card-content>
-    <mat-card-actions class="action">
-      <button mat-raised-button>Details</button>
-      <button mat-raised-button class="primary-button">Reserve - {{ sandwich.price | currency }}</button>
-    </mat-card-actions>
-  </mat-card>
-</ng-container>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened role="search">
+    <app-sandwich-filtering (sandwichFiltersChange)="onFiltering($event)"></app-sandwich-filtering>
+  </mat-sidenav>
+  <mat-sidenav-content class="list" role="list">
+    <ng-container *ngFor="let sandwich of (sandwiches$ | async)">
+        <mat-card class="item" role="listitem">  
+          <img *ngIf="sandwich.thumbnail" [src]="sandwich.thumbnail" mat-card-md-image class="thumbnail">
+          <mat-card-header>
+            <div mat-card-avatar class="avatar"></div>
+            <mat-card-title>{{ sandwich.title }}</mat-card-title>
+            <mat-card-subtitle>{{ sandwich.type }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>{{ sandwich.description }}</mat-card-content>
+          <mat-card-actions class="action">
+            <button mat-raised-button>Details</button>
+            <button mat-raised-button class="primary-button">Reserve - {{ sandwich.price > 0 ? (sandwich.price | currency) : ' Free' }}</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

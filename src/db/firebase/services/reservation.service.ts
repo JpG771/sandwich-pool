@@ -22,4 +22,8 @@ export class FirebaseReservationService extends BaseFirestoreService<Reservation
     return this.firestoreService.collection(FirebaseReservationService.COLLECTION_NAME, ref => ref.where('sandwichId', '==', sandwichId))
       .valueChanges({ idField: '' }).pipe(map(items => items.map(setObjectId)));
   }
+  getAllForUser(userId: string): Observable<Array<Reservation>> {
+    return this.firestoreService.collection(FirebaseReservationService.COLLECTION_NAME, ref => ref.where('userId', '==', userId))
+      .valueChanges({ idField: '' }).pipe(map(items => items.map(setObjectId)));
+  }
 }

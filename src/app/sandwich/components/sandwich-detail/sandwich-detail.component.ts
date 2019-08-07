@@ -2,7 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { UserService } from 'src/app/core/models/user-service';
+import { USER_SERVICE_TOKEN_NAME, UserService } from 'src/app/core/models/user-service';
 import { SANDWICH_ID_PARAM_KEY } from '../../constants/sandwich';
 import { Sandwich } from '../../models/sandwich';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
@@ -21,7 +21,7 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService,
+    @Inject(USER_SERVICE_TOKEN_NAME) private userService: UserService,
     @Inject(SANDWICH_SERVICE_TOKEN_NAME) private sandwichService: SandwichService
   ) { }
 
