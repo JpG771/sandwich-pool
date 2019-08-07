@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SandwichService } from 'src/app/sandwich/models/sandwich-service';
 import { Observable, Observer } from 'rxjs';
 import { Sandwich } from 'src/app/sandwich/models/sandwich';
+import { SandwichService } from 'src/app/sandwich/models/sandwich-service';
 
 @Injectable({
   providedIn: 'root'

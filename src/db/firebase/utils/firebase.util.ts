@@ -4,4 +4,4 @@ export const setObjectId = (firebaseSandwich: any): any => {
     ...withoutId,
     id: idField
   };
-}
+};

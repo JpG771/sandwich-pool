@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Sandwich } from '../../models/sandwich';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sandwich-list',

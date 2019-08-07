@@ -1,6 +1,6 @@
-import { UserService } from 'src/app/core/models/user-service';
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { UserService } from 'src/app/core/models/user-service';
 
 @Injectable({
   providedIn: 'root'

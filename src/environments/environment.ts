@@ -1,5 +1,5 @@
-import { FakeSandwichService } from 'src/db/fakeData/sandwich.service';
 import { FakeReservationService } from 'src/db/fakeData/reservation.service';
+import { FakeSandwichService } from 'src/db/fakeData/sandwich.service';
 import { FakeUserService } from 'src/db/fakeData/user.service';
 
 // This file can be replaced during build by using the `fileReplacements` array.

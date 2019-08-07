@@ -1,8 +1,8 @@
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Observable, from } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { setObjectId } from '../utils/firebase.util';
 import { Entity } from 'src/app/core/models/entity';
+import { setObjectId } from '../utils/firebase.util';
 
 export class BaseFirestoreService<T extends Entity> {
 

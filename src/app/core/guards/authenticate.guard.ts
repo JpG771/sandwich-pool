@@ -1,18 +1,18 @@
-import { Injectable, Inject } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import {
+  ActivatedRouteSnapshot,
   CanActivate,
   CanActivateChild,
   CanLoad,
   Route,
-  UrlSegment,
-  ActivatedRouteSnapshot,
+  Router,
   RouterStateSnapshot,
-  UrlTree,
-  Router
+  UrlSegment,
+  UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { USER_SERVICE_TOKEN_NAME, UserService } from '../models/user-service';
 import { map } from 'rxjs/operators';
+import { USER_SERVICE_TOKEN_NAME, UserService } from '../models/user-service';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,7 @@ export class AuthenticateGuard implements CanActivate, CanActivateChild, CanLoad
   }
   canLoad(
     route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+    segments: Array<UrlSegment>): Observable<boolean> | Promise<boolean> | boolean {
     return this.userService.isLoggedIn();
   }
 }

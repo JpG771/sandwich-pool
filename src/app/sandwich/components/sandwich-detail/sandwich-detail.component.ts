@@ -1,10 +1,10 @@
-import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { Sandwich } from '../../models/sandwich';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SANDWICH_ID_PARAM_KEY } from '../../constants/sandwich';
-import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
-import { Subscription, Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { SANDWICH_ID_PARAM_KEY } from '../../constants/sandwich';
+import { Sandwich } from '../../models/sandwich';
+import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
 
 @Component({
   selector: 'app-sandwich-detail',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseAuthenticateService } from '../../services/firebase-authenticate.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { FirebaseAuthenticateService } from '../../services/firebase-authenticate.service';
 
 @Component({
   selector: 'app-firebase-avatar',

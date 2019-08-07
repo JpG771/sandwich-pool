@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ReservationService } from 'src/app/sandwich/models/reservation-service';
 import { Observable, Observer } from 'rxjs';
 import { Reservation } from 'src/app/sandwich/models/reservation';
+import { ReservationService } from 'src/app/sandwich/models/reservation-service';
 
 @Injectable({
   providedIn: 'root'

@@ -1,16 +1,16 @@
-import { firebaseConfig } from './firebase.config';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { NgModule } from '@angular/core';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GestureConfig, MatButtonModule } from '@angular/material';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
-import { FirebaseRoutingModule } from './firebase.routing';
-import { FirebaseLoginComponent } from './components/firebase-login/firebase-login.component';
 import { FirebaseAvatarComponent } from './components/firebase-avatar/firebase-avatar.component';
-import { CommonModule } from '@angular/common';
+import { FirebaseLoginComponent } from './components/firebase-login/firebase-login.component';
+import { firebaseConfig } from './firebase.config';
+import { FirebaseRoutingModule } from './firebase.routing';
 
 @NgModule({
   declarations: [

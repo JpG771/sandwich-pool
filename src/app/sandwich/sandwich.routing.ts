@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SandwichListComponent } from './components/sandwich-list/sandwich-list.component';
-import { SandwichDetailComponent } from './components/sandwich-detail/sandwich-detail.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthenticateGuard } from '../core/guards/authenticate.guard';
+import { SandwichDetailComponent } from './components/sandwich-detail/sandwich-detail.component';
+import { SandwichListComponent } from './components/sandwich-list/sandwich-list.component';
 
 const routes: Routes = [
   {

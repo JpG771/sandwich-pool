@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SandwichModule } from './sandwich/sandwich.module';
+import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './core/components/about/about.component';
-import { TosComponent } from './core/components/tos/tos.component';
 import { PrivacyPolicyComponent } from './core/components/privacy-policy/privacy-policy.component';
+import { TosComponent } from './core/components/tos/tos.component';
+import { SandwichModule } from './sandwich/sandwich.module';
 
 const routes: Routes = [
   {
