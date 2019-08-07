@@ -2,6 +2,7 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { UserService } from 'src/app/core/models/user-service';
 import { SANDWICH_ID_PARAM_KEY } from '../../constants/sandwich';
 import { Sandwich } from '../../models/sandwich';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
@@ -20,21 +21,24 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private userService: UserService,
     @Inject(SANDWICH_SERVICE_TOKEN_NAME) private sandwichService: SandwichService
   ) { }
 
   ngOnInit(): void {
-    this.routeSubscription$ = this.route.params.subscribe(params => {
-      const sandwichId: string = params[SANDWICH_ID_PARAM_KEY];
-      if (sandwichId) {
-        this.sandwichService.get(sandwichId).subscribe(sandwich => {
-          this.currentSandwich = sandwich ? sandwich : this.getDefaultSandwich();
-        }, error => {
-          console.error('Error loading sandwich : ', error);
-        });
-      } else {
-        this.currentSandwich = this.getDefaultSandwich();
-      }
+    this.userService.getUserId().subscribe(userId => {
+      this.routeSubscription$ = this.route.params.subscribe(params => {
+        const sandwichId: string = params[SANDWICH_ID_PARAM_KEY];
+        if (sandwichId) {
+          this.sandwichService.get(sandwichId).subscribe(sandwich => {
+            this.currentSandwich = sandwich ? sandwich : this.getDefaultSandwich(userId);
+          }, error => {
+            console.error('Error loading sandwich : ', error);
+          });
+        } else {
+          this.currentSandwich = this.getDefaultSandwich(userId);
+        }
+      });
     });
     this.priceChanged$.pipe(
       debounceTime(500)
@@ -75,9 +79,9 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
     this.priceChanged$.next(newValue);
   }
 
-  private getDefaultSandwich = (): Sandwich => ({
+  private getDefaultSandwich = (userId: string): Sandwich => ({
     title: '',
-    userId: '',
+    userId,
     price: 0,
     quantity: 1,
     type: 'Sandwich'
