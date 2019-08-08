@@ -14,7 +14,8 @@ export class AlertService {
 
   showSuccess(message: string): void {
     this.snackbarService.open(message, 'Close', {
-      panelClass: 'success'
+      panelClass: 'success',
+      duration: 2000
     });
   }
 
