@@ -1,13 +1,13 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side" opened role="search">
+<mat-drawer-container>
+  <mat-drawer mode="side" opened role="search">
     <app-sandwich-filtering (sandwichFiltersChange)="onFiltering($event)"> </app-sandwich-filtering>
-  </mat-sidenav>
-  <mat-sidenav-content class="list" role="list">
+  </mat-drawer>
+  <mat-drawer-content class="list" role="list">
     <app-sandwich-items #items [actionTemplate]="actionTemplate" [additionalInfoTemplate]="additionalInfoTemplate"></app-sandwich-items>
     <ng-template #actionTemplate let-sandwich>
       <a mat-raised-button [routerLink]="'../sandwich/' + sandwich.id">Edit</a>
       <button mat-raised-button class="primary-button" (click)="onDelete(sandwich)">Delete</button>
     </ng-template>
     <ng-template #additionalInfoTemplate let-sandwich> </ng-template>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>

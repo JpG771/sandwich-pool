@@ -7,7 +7,16 @@ body {
 }
 
 mat-sidenav-content.mat-drawer-content {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+
+  & > * {
+    flex: 1;
+  }
+  & > router-outlet, & > .navigation {
+    flex: inherit;
+  }
 }
 
 // Forms
