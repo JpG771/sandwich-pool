@@ -1,7 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { BehaviorSubject, combineLatest, forkJoin, from, Observable, Subject, Subscription } from 'rxjs';
-import { catchError, map, switchMap, take, tap } from 'rxjs/operators';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { BehaviorSubject, combineLatest, from, Observable, Subscription } from 'rxjs';
+import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { USER_SERVICE_TOKEN_NAME, UserService } from 'src/app/core/models/user-service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 import { Reservation } from '../../models/reservation';
 import { RESERVATION_SERVICE_TOKEN_NAME, ReservationService } from '../../models/reservation-service';
 import { Sandwich } from '../../models/sandwich';
@@ -13,60 +14,86 @@ import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandw
   templateUrl: './sandwich-list.component.html',
   styleUrls: ['./sandwich-list.component.scss']
 })
-export class SandwichListComponent implements OnInit {
+export class SandwichListComponent implements OnInit, OnDestroy {
+
+  userId: string;
+  reservations: Array<Reservation>;
 
   sandwiches$: Observable<Array<Sandwich>>;
-  userIdSubscription$: Subscription;
+  subscriptions$: Subscription = new Subscription();
   filters$ = new BehaviorSubject<SandwichFilters>({
     quantity: 1,
     showMine: false,
     showReserved: false
   });
+  manualRefresh$ = new BehaviorSubject<void>(void 0);
 
   constructor(
     @Inject(USER_SERVICE_TOKEN_NAME) private userService: UserService,
     @Inject(SANDWICH_SERVICE_TOKEN_NAME) private sandwichService: SandwichService,
-    @Inject(RESERVATION_SERVICE_TOKEN_NAME) private reservationService: ReservationService
+    @Inject(RESERVATION_SERVICE_TOKEN_NAME) private reservationService: ReservationService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
-    this.sandwiches$ =
-      combineLatest(
-        this.sandwichService.getAll().pipe(tap(() => console.log('All sandwiches fetched...'))),
-        this.filters$.pipe(tap(() => console.log('Filters set...'))),
-        this.userService.getUserId().pipe(tap(() => console.log('User ID fetched...')))
-      ).pipe(
-        tap(() => console.log('Filtering 1...')),
-        switchMap(([sandwiches, filters, userId]) => {
-          return forkJoin(
-            from([sandwiches]),
-            from([filters]),
-            from([userId]),
-            this.reservationService.getAllForUser(userId).pipe(
+    this.subscriptions$.add(
+      this.userService.getUserId()
+        .pipe(
+          switchMap(userId => {
+            this.userId = userId;
+            return this.reservationService.getAllForUser(userId).pipe(
               take(1),
               catchError(error => {
-                console.error(error);
+                this.alertService.showError('Could not fetch reservations. Sandwiches already reserved could be shown.');
                 return from([[] as Array<Reservation>]);
               })
-            ));
-        }),
-        tap(() => console.log('Filtering 2...')),
-        map(([sandwiches, filters, userId, reservations]) => sandwiches
-          .filter(this.filterByUserId(filters.userId))
-          .filter(this.filterByType(filters.type))
-          .filter(this.filterByQuantity(filters.quantity))
-          .filter(this.filterByMaxPrice(filters.maxPrice))
-          .filter(this.filterByMinPrice(filters.minPrice))
-          .filter(this.filterByTitle(filters.title))
-          .filter(this.filterByShowMine(filters.showMine, userId))
-          .filter(this.filterByShowReserved(filters.showReserved, reservations))
-          .filter(this.filterByTags(filters.tags))
-        )
-      );
+            );
+          })
+        ).subscribe(reservations => {
+          this.reservations = reservations;
+
+          this.sandwiches$ =
+          combineLatest(
+            this.sandwichService.getAll(),
+            this.filters$,
+            this.manualRefresh$
+          ).pipe(
+            map(([sandwiches, filters]) => sandwiches
+              .filter(this.filterByUserId(filters.userId))
+              .filter(this.filterByType(filters.type))
+              .filter(this.filterByQuantity(filters.quantity))
+              .filter(this.filterByMaxPrice(filters.maxPrice))
+              .filter(this.filterByMinPrice(filters.minPrice))
+              .filter(this.filterByTitle(filters.title))
+              .filter(this.filterByShowMine(filters.showMine, this.userId))
+              .filter(this.filterByShowReserved(filters.showReserved, this.reservations))
+              .filter(this.filterByTags(filters.tags))
+            )
+          );
+        })
+    );
+  }
+  ngOnDestroy(): void {
+    this.subscriptions$.unsubscribe();
   }
 
   onFiltering(filters: SandwichFilters): void {
     this.filters$.next(filters);
+  }
+
+  onReserve(sandwich: Sandwich): void {
+    const newReservation: Reservation = {
+      sandwichId: sandwich.id,
+      userId: this.userId,
+      quantity: 1
+    };
+    this.reservationService.add(newReservation).subscribe(result => {
+      this.reservations.push(result);
+      this.manualRefresh$.next();
+      this.alertService.showSuccess('Reservation completed!');
+    }, error => {
+      this.alertService.showError('Could not complete reservation, please try again later.');
+    });
   }
 
   private filterByUserId(userId?: string): (value: Sandwich, index: number, array: Array<Sandwich>) => boolean {

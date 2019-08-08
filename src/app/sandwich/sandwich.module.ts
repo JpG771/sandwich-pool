@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
 import { environment } from 'src/environments/environment';
+import { AlertModule } from '../shared/alert/alert.module';
 import { SandwichDetailComponent } from './components/sandwich-detail/sandwich-detail.component';
 import { SandwichFilteringComponent } from './components/sandwich-filtering/sandwich-filtering.component';
 import { SandwichListComponent } from './components/sandwich-list/sandwich-list.component';
@@ -21,6 +22,7 @@ import { SandwichRoutingModule } from './sandwich.routing';
 @NgModule({
   declarations: [SandwichListComponent, SandwichDetailComponent, SandwichFilteringComponent],
   imports: [
+    AlertModule,
     CommonModule,
     FormsModule,
     SandwichRoutingModule,

@@ -1,8 +1,7 @@
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Entity } from 'src/app/core/models/entity';
-import { setObjectId } from '../utils/firebase.util';
 
 export class BaseFirestoreService<T extends Entity> {
 
@@ -13,13 +12,10 @@ export class BaseFirestoreService<T extends Entity> {
   }
 
   get(id: string): Observable<T> {
-    return this.itemsCollection.doc(id).valueChanges().pipe(
-        map(item => ({ ...item, id } as T))
-      );
+    return this.itemsCollection.doc<T>(id).valueChanges();
   }
   getAll(): Observable<Array<T>> {
-    return this.itemsCollection.valueChanges({ idField: '' }).pipe(
-      map(items => items.map(setObjectId)));
+    return this.itemsCollection.valueChanges();
   }
   add(value: T): Observable<T> {
     const id = this.firestoreService.createId();
@@ -27,17 +23,41 @@ export class BaseFirestoreService<T extends Entity> {
       ...value,
       id
     };
-    return from(this.itemsCollection.doc(id).set(newItem)).pipe(
-      map(() => value)
+    return new Observable(observer => {
+      try {
+        this.itemsCollection.doc(id).set(newItem);
+        observer.next(void 0);
+      } catch (error) {
+        observer.error(error);
+      }
+      observer.complete();
+    }).pipe(
+      map(() => newItem)
     );
   }
   edit(value: T): Observable<T> {
-    return from(this.itemsCollection.doc(value.id).set(value)).pipe(
+    return new Observable(observer => {
+      try {
+        this.itemsCollection.doc(value.id).set(value);
+        observer.next(void 0);
+      } catch (error) {
+        observer.error(error);
+      }
+      observer.complete();
+    }).pipe(
       map(() => value)
     );
   }
   remove(value: T): Observable<boolean> {
-    return from(this.itemsCollection.doc(value.id).delete()).pipe(
+    return new Observable(observer => {
+      try {
+        this.itemsCollection.doc(value.id).delete();
+        observer.next(void 0);
+      } catch (error) {
+        observer.error(error);
+      }
+      observer.complete();
+    }).pipe(
       map(() => true)
     );
   }

@@ -1,3 +1,4 @@
+@import './variables';
 @import './theme';
 @import './mixins';
 
@@ -9,8 +10,40 @@ mat-sidenav-content.mat-drawer-content {
   height: 100vh;
 }
 
+// Forms
 .mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
   &.primary-button {
     @include color_button($warn_color, $light-primary-text);
   }
+}
+
+// Alerts
+.mat-snack-bar-container {
+  .success {
+    background-color: map-get($fourth_color, 500);
+
+    .mat-simple-snackbar-action {
+      color: $dark-primary-text;
+    }
+  }
+
+  .error {
+    background-color: map-get($warn_color, 500);
+  }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: map-get($primary_color, 500);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: map-get($third_color, 500);
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: map-get($primary_color, 500);
 }

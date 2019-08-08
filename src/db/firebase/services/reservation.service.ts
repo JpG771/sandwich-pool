@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Reservation } from 'src/app/sandwich/models/reservation';
 import { ReservationService } from 'src/app/sandwich/models/reservation-service';
-import { setObjectId } from '../utils/firebase.util';
 import { BaseFirestoreService } from './base-firestore.service';
 
 @Injectable({
@@ -19,11 +17,13 @@ export class FirebaseReservationService extends BaseFirestoreService<Reservation
   }
 
   getAllForSandwich(sandwichId: string): Observable<Array<Reservation>> {
-    return this.firestoreService.collection(FirebaseReservationService.COLLECTION_NAME, ref => ref.where('sandwichId', '==', sandwichId))
-      .valueChanges({ idField: '' }).pipe(map(items => items.map(setObjectId)));
+    return this.firestoreService
+      .collection<Reservation>(FirebaseReservationService.COLLECTION_NAME, ref => ref.where('sandwichId', '==', sandwichId))
+      .valueChanges();
   }
   getAllForUser(userId: string): Observable<Array<Reservation>> {
-    return this.firestoreService.collection(FirebaseReservationService.COLLECTION_NAME, ref => ref.where('userId', '==', userId))
-      .valueChanges({ idField: '' }).pipe(map(items => items.map(setObjectId)));
+    return this.firestoreService
+      .collection<Reservation>(FirebaseReservationService.COLLECTION_NAME, ref => ref.where('userId', '==', userId))
+      .valueChanges();
   }
 }

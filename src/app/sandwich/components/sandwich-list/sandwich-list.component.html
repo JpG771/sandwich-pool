@@ -13,8 +13,8 @@
           </mat-card-header>
           <mat-card-content>{{ sandwich.description }}</mat-card-content>
           <mat-card-actions class="action">
-            <button mat-raised-button>Details</button>
-            <button mat-raised-button class="primary-button">Reserve - {{ sandwich.price > 0 ? (sandwich.price | currency) : ' Free' }}</button>
+            <a mat-raised-button [routerLink]="sandwich.id">Details</a>
+            <button mat-raised-button class="primary-button" (click)="onReserve(sandwich)">Reserve - {{ sandwich.price > 0 ? (sandwich.price | currency) : ' Free' }}</button>
           </mat-card-actions>
         </mat-card>
       </ng-container>
