@@ -1,22 +1,31 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened role="search">
-    <app-sandwich-filtering (sandwichFiltersChange)="onFiltering($event)"></app-sandwich-filtering>
+    <app-sandwich-filtering (sandwichFiltersChange)="onFiltering($event)">
+      <ng-template>
+        <mat-checkbox id="showReserved" name="showReserved"
+          [(ngModel)]="showReserved">
+        Show reserved sandwiches
+        </mat-checkbox>
+
+        <mat-checkbox id="showMine" name="showMine"
+          [(ngModel)]="showMine">
+        Show my sandwiches
+        </mat-checkbox>
+
+        <mat-form-field class="user">
+          <input matInput placeholder="From user"
+            id="userInput" name="userInput"
+            [(ngModel)]="filterUserId">
+          <!--<mat-hint>Email of the user</mat-hint>-->
+        </mat-form-field>
+      </ng-template>
+    </app-sandwich-filtering>
   </mat-sidenav>
   <mat-sidenav-content class="list" role="list">
-    <ng-container *ngFor="let sandwich of (sandwiches$ | async)">
-        <mat-card class="item" role="listitem">  
-          <img *ngIf="sandwich.thumbnail" [src]="sandwich.thumbnail" mat-card-md-image class="thumbnail">
-          <mat-card-header>
-            <div mat-card-avatar class="avatar"></div>
-            <mat-card-title>{{ sandwich.title }}</mat-card-title>
-            <mat-card-subtitle>{{ sandwich.type }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>{{ sandwich.description }}</mat-card-content>
-          <mat-card-actions class="action">
-            <a mat-raised-button [routerLink]="sandwich.id">Details</a>
-            <button mat-raised-button class="primary-button" (click)="onReserve(sandwich)">Reserve - {{ sandwich.price > 0 ? (sandwich.price | currency) : ' Free' }}</button>
-          </mat-card-actions>
-        </mat-card>
-      </ng-container>
+    <app-sandwich-items #items></app-sandwich-items>
+    <ng-template #actionTemplate let-sandwich>
+      <a mat-raised-button [routerLink]="sandwich.id">Details</a>
+      <button mat-raised-button class="primary-button" (click)="onReserve(sandwich)">Reserve - {{ sandwich.price > 0 ? (sandwich.price | currency) : ' Free' }}</button>
+    </ng-template>
   </mat-sidenav-content>
 </mat-sidenav-container>

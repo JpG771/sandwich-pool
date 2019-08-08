@@ -1,0 +1,20 @@
+<ng-container *ngFor="let sandwich of (sandwiches$ | async)">
+  <mat-card class="item" role="listitem">  
+    <img *ngIf="sandwich.thumbnail" [src]="sandwich.thumbnail" mat-card-md-image class="thumbnail">
+    <mat-card-header>
+      <div mat-card-avatar class="avatar"></div>
+      <mat-card-title>{{ sandwich.title }}</mat-card-title>
+      <mat-card-subtitle>{{ sandwich.type }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{ sandwich.description }}
+      <ng-container *ngIf="additionalInfoTemplate" 
+          [ngTemplateOutlet]="additionalInfoTemplate" 
+          [ngTemplateOutletContext]="{ $implicit: sandwich }">
+      </ng-container>
+    </mat-card-content>
+    <mat-card-actions class="action">
+      <ng-container [ngTemplateOutlet]="actionTemplate" [ngTemplateOutletContext]="{ $implicit: sandwich }"></ng-container>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

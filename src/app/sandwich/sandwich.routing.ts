@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticateGuard } from '../core/guards/authenticate.guard';
+import { MySandwichComponent } from './components/my-sandwich/my-sandwich.component';
 import { SandwichDetailComponent } from './components/sandwich-detail/sandwich-detail.component';
 import { SandwichListComponent } from './components/sandwich-list/sandwich-list.component';
 
@@ -8,6 +9,11 @@ const routes: Routes = [
   {
     path: 'sandwich',
     component: SandwichListComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'my-sandwich',
+    component: MySandwichComponent,
     canActivate: [AuthenticateGuard],
   },
   {

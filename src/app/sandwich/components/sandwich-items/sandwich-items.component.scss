@@ -1,0 +1,32 @@
+@import "../../../../sass/variables";
+@import "../../../../sass/mixins";
+
+mat-card-content {
+  margin-bottom: 0;
+}
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  grid-template-rows: auto;
+  align-items: self-start;
+  grid-auto-flow: dense;
+}
+
+.item {
+  overflow: hidden;
+  margin: 1em;
+
+  .thumbnail {
+    margin: -16px;
+    margin-bottom: 1em;
+    width: 110%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: cover;
+  }
+
+  .action {
+    text-align: right;
+  }
+}

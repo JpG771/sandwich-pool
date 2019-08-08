@@ -1,4 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { MatSliderChange } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -41,7 +42,7 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
       });
     });
     this.priceChanged$.pipe(
-      debounceTime(500)
+      debounceTime(300)
     ).subscribe(newValue => {
       this.currentSandwich.price = newValue;
     });
@@ -75,8 +76,8 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSliderChanged(newValue: number): void {
-    this.priceChanged$.next(newValue);
+  onSliderChanged(newValue: MatSliderChange): void {
+    this.priceChanged$.next(newValue.value);
   }
 
   private getDefaultSandwich = (userId: string): Sandwich => ({

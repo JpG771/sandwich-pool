@@ -18,9 +18,11 @@ import { SandwichListComponent } from './components/sandwich-list/sandwich-list.
 import { RESERVATION_SERVICE_TOKEN_NAME } from './models/reservation-service';
 import { SANDWICH_SERVICE_TOKEN_NAME } from './models/sandwich-service';
 import { SandwichRoutingModule } from './sandwich.routing';
+import { MySandwichComponent } from './components/my-sandwich/my-sandwich.component';
+import { SandwichItemsComponent } from './components/sandwich-items/sandwich-items.component';
 
 @NgModule({
-  declarations: [SandwichListComponent, SandwichDetailComponent, SandwichFilteringComponent],
+  declarations: [SandwichListComponent, SandwichDetailComponent, SandwichFilteringComponent, MySandwichComponent, SandwichItemsComponent],
   imports: [
     AlertModule,
     CommonModule,
