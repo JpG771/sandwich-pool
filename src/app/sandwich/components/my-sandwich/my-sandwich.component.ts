@@ -5,6 +5,7 @@ import { RESERVATION_SERVICE_TOKEN_NAME, ReservationService } from '../../models
 import { Sandwich } from '../../models/sandwich';
 import { SandwichFilters } from '../../models/sandwich-filters';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
+import { sortSandwichByDate } from '../../utils/sandwich.util';
 import { SandwichItemsComponent } from '../sandwich-items/sandwich-items.component';
 
 @Component({
@@ -27,7 +28,8 @@ export class MySandwichComponent implements OnInit {
     this.userService.getUserId().subscribe(userId => {
       this.itemsComponent.userId = userId;
       this.itemsComponent.additionalFilters = (sandwiches: Array<Sandwich>) => sandwiches
-        .filter(sandwich => sandwich.userId === this.itemsComponent.userId);
+        .filter(sandwich => sandwich.userId === this.itemsComponent.userId)
+        .sort(sortSandwichByDate());
       this.itemsComponent.initSandwich();
     });
   }
