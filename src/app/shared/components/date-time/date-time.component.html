@@ -1,0 +1,15 @@
+<mat-form-field class="date">
+  <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date" 
+    [ngModel]="datetime" (dateChange)="onDateChanged($event)">
+  <mat-datepicker-toggle matSuffix [for]="picker" class="toggle-button"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
+</mat-form-field>
+<mat-form-field class="time">
+  <input matInput placeholder="Time (HH:ss)" [ngModel]="formattedTime" (change)="onTimeChanged($event)"
+    [ngxTimepicker]="toggleIcon" [format]="24" [disableClick]="true">
+  <ngx-material-timepicker-toggle [for]="toggleIcon" class="toggle-button">
+    <mat-icon aria-hidden="true">access_time</mat-icon>
+  </ngx-material-timepicker-toggle>
+</mat-form-field>
+<ngx-material-timepicker #toggleIcon [minutesGap]="5" (timeSet)="onTimeChanged($event)"></ngx-material-timepicker>

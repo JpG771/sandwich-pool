@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { USER_SERVICE_TOKEN_NAME, UserService } from 'src/app/core/models/user-service';
-import { AlertService } from 'src/app/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/services/alert/alert.service';
 import { RESERVATION_SERVICE_TOKEN_NAME, ReservationService } from '../../models/reservation-service';
 import { Sandwich } from '../../models/sandwich';
 import { SandwichFilters } from '../../models/sandwich-filters';

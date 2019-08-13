@@ -27,4 +27,12 @@ export interface Sandwich extends Entity {
   address: Address;
   // More detail on the address
   addressDetail?: string;
+  // Date of the sandwich creation
+  dateCreated?: string;
+  // When the user saved a change to the sandwich
+  dateModified?: string;
+  // When the sandwich will be picked up
+  datePickUp?: string;
+  // Last time a user can reserve this sandwich
+  dateLimit?: string;
 }

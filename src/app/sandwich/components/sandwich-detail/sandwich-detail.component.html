@@ -49,7 +49,7 @@
     <input type="number" matInput placeholder="Quantity" required
       id="quantityInput" name="quantityInput"
       [(ngModel)]="currentSandwich.quantity" #quantity="ngModel">
-    <mat-hint>The number of portions or plates available.</mat-hint>
+    <mat-hint>The number of portions or plates available</mat-hint>
     <mat-error>Quantity is required</mat-error>
   </mat-form-field>
 
@@ -63,6 +63,13 @@
       [(ngModel)]="currentSandwich.addressDetail" #quantity="ngModel"></textarea>
     <mat-hint>More detail on the address like the appartment, floor or room number.</mat-hint>
   </mat-form-field>
+
+  <app-date-time [(datetime)]="currentSandwich.datePickUp"
+    [minDate]="currentDate"
+    hint="The date and time you'll distribute the sandwich"></app-date-time>
+  <app-date-time [(datetime)]="currentSandwich.dateLimit"
+    [minDate]="currentDate" [maxDate]="currentSandwich.datePickUp"
+    hint="The last time someone can reserve your sandwich and have a share ready"></app-date-time>
 
   <mat-form-field class="image">
     <input matInput placeholder="Image"

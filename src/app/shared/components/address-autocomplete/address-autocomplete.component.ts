@@ -2,8 +2,8 @@ import { MapsAPILoader } from '@agm/core';
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, filter } from 'rxjs/operators';
-import { AlertService } from '../alert/alert.service';
-import { Address } from '../models/address';
+import { Address } from '../../models/address';
+import { AlertService } from '../../services/alert/alert.service';
 
 @Component({
   selector: 'app-address-autocomplete',
@@ -16,7 +16,7 @@ export class AddressAutocompleteComponent implements OnInit, OnDestroy {
   @Input() hint: string;
   @Input() required = false;
 
-  @Output() addressChanged = new EventEmitter<Address>();
+  @Output() addressChange = new EventEmitter<Address>();
 
   @ViewChild('address', { static: false }) public addressElementRef: ElementRef;
 
@@ -46,8 +46,8 @@ export class AddressAutocompleteComponent implements OnInit, OnDestroy {
       ).subscribe(() => {
         this.previousAutocompleteAddress = this.address.name;
         // Generate options
-        this.loading = true;
         if (this.address.name) {
+          this.loading = true;
           this.autocompleteService.getPlacePredictions({
             input: this.address.name,
             types: ['address'],
@@ -99,7 +99,7 @@ export class AddressAutocompleteComponent implements OnInit, OnDestroy {
         if (results[0]) {
           this.address.longitude = results[0].geometry.location.lng();
           this.address.latitude = results[0].geometry.location.lat();
-          this.addressChanged.emit(this.address);
+          this.addressChange.emit(this.address);
         } else {
           this.alertService.showError('No longitude/latitude found for that address.' +
             ' Please try again later.');
@@ -132,7 +132,7 @@ export class AddressAutocompleteComponent implements OnInit, OnDestroy {
         if (results[0]) {
           this.address.name = results[0].formatted_address;
           this.addressElementRef.nativeElement.value = results[0].formatted_address;
-          this.addressChanged.emit(this.address);
+          this.addressChange.emit(this.address);
         } else {
           this.alertService.showError('No address found for the given geo code.' +
             ' Please add more information into the address detail field.');

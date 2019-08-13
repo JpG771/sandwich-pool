@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 import { USER_SERVICE_TOKEN_NAME, UserService } from 'src/app/core/models/user-service';
-import { AlertService } from 'src/app/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/services/alert/alert.service';
+import { getCurrentDateTime } from 'src/app/shared/utils/date.util';
 import { SANDWICH_ID_PARAM_KEY } from '../../constants/sandwich';
 import { Sandwich } from '../../models/sandwich';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
@@ -60,6 +61,7 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
     this.currentSandwich.quantityLeft = this.currentSandwich.quantity;
     // Insert or update the sandwich
     if (this.currentSandwich.id) {
+      this.currentSandwich.dateModified = getCurrentDateTime();
       this.sandwichService.edit(this.currentSandwich).subscribe(result => {
         this.currentSandwich = result;
         this.alertService.showSuccess('Sandwich was saved!');
@@ -68,6 +70,7 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
         console.error('Couldn\'t save the sandwich : ', error);
       });
     } else {
+      this.currentSandwich.dateCreated = getCurrentDateTime();
       this.sandwichService.add(this.currentSandwich).subscribe(result => {
         this.currentSandwich = result;
         this.alertService.showSuccess('Sandwich was saved!');
