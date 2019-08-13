@@ -4,7 +4,7 @@ import { FirebaseReservationService } from 'src/db/firebase/services/reservation
 import { FirebaseSandwichService } from 'src/db/firebase/services/sandwich.service';
 
 export const environment = {
-  production: true,
+  production: false,
   additionnalModules: [FirebaseModule],
   services: {
     sandwichService: FirebaseSandwichService,

@@ -4,7 +4,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { GestureConfig, MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { GestureConfig } from '@angular/material/core';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { FirebaseAvatarComponent } from './components/firebase-avatar/firebase-avatar.component';
@@ -12,13 +13,17 @@ import { FirebaseLoginComponent } from './components/firebase-login/firebase-log
 import { firebaseConfig } from './firebase.config';
 import { FirebaseRoutingModule } from './firebase.routing';
 
+export function appName() {
+  return 'Sandwich Pooling';
+}
+
 @NgModule({
   declarations: [
     FirebaseLoginComponent,
     FirebaseAvatarComponent
   ],
   imports: [
-    NgxAuthFirebaseUIModule.forRoot(firebaseConfig, () => 'Sandwich Pooling', {
+    NgxAuthFirebaseUIModule.forRoot(firebaseConfig, appName, {
       authGuardFallbackURL: '/',
       authGuardLoggedInURL: '/',
     }),

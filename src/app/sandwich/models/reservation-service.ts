@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { Reservation } from './reservation';
 
 export const RESERVATION_SERVICE_TOKEN_NAME = 'ReservationService';

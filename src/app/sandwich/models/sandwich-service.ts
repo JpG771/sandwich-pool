@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { Sandwich } from './sandwich';
 
 export const SANDWICH_SERVICE_TOKEN_NAME = 'SandwichService';
