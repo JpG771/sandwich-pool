@@ -30,7 +30,7 @@ export class SandwichItemsComponent {
   ) {}
 
   initSandwich() {
-    this.sandwiches$ = combineLatest(this.sandwichService.getAll(), this.filters$, this.manualRefresh$).pipe(
+    this.sandwiches$ = combineLatest([this.sandwichService.getAll(), this.filters$, this.manualRefresh$]).pipe(
       map(([sandwiches, filters]) =>
         this.additionalFilters(
           sandwiches
