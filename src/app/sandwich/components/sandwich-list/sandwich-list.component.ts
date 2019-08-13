@@ -8,8 +8,8 @@ import { RESERVATION_SERVICE_TOKEN_NAME, ReservationService } from '../../models
 import { Sandwich } from '../../models/sandwich';
 import { SandwichFilters } from '../../models/sandwich-filters';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
-import { SandwichItemsComponent } from '../sandwich-items/sandwich-items.component';
 import { sortSandwichByDate } from '../../utils/sandwich.util';
+import { SandwichItemsComponent } from '../sandwich-items/sandwich-items.component';
 
 @Component({
   selector: 'app-sandwich-list',
