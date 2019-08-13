@@ -1,4 +1,5 @@
 import { Entity } from 'src/app/core/models/entity';
+import { Address } from 'src/app/shared/models/address';
 
 /**
  * A Sandwich is meal that can be shared.
@@ -14,10 +15,16 @@ export interface Sandwich extends Entity {
   thumbnail?: string;
   // Price of the sandwich. Can have decimals.
   price: number;
-  // A sandwich can be in multiple quantities.
+  // A sandwich can be in multiple portions. This is the original quantity.
   quantity: number;
+  // How much of the original quantity is left.
+  quantityLeft?: number;
   // Kind of sandwich or category of sandwich.
   type: string;
   // Multiple tags related to the sandwich. Ex: Gourmet, Vegetarian, Cheap, Bread, Chicken, etc.
   tags?: Array<string>;
+  // Address object
+  address: Address;
+  // More detail on the address
+  addressDetail?: string;
 }

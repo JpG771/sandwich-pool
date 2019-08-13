@@ -1,4 +1,7 @@
-<h2>Filtering</h2>
+<h2>
+  Filtering 
+  <button mat-raised-button (click)="onClose()"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> Close</button>
+</h2>
 
 <form *ngIf="sandwichFilters" (ngSubmit)="onSubmit()" #filtersForm="ngForm">
   <mat-form-field class="title">

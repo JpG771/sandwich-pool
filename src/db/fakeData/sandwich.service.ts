@@ -16,7 +16,12 @@ export class FakeSandwichService implements SandwichService {
     price: 10,
     quantity: 1,
     type: 'Sandwich',
-    tags: ['Sandwich']
+    tags: ['Sandwich'],
+    address: {
+      name: '123 Wall Street',
+      longitude: 1,
+      latitude: 2
+    }
   }];
   private newId = 2;
 

@@ -2,11 +2,11 @@
 
 <form *ngIf="currentSandwich; else sandwichLoading" (ngSubmit)="onSubmit()" #sandwichForm="ngForm">
   <mat-form-field class="title">
-    <input matInput placeholder="Title" required
+    <input matInput placeholder="Title" required maxlength="20"
       id="titleInput" name="titleInput"
       [(ngModel)]="currentSandwich.title" #title="ngModel">
     <mat-hint>Short description</mat-hint>
-    <mat-error *ngIf="!title.valid">Title is required</mat-error>
+    <mat-error>Title is required</mat-error>
   </mat-form-field>
   
   <mat-form-field class="type">
@@ -19,11 +19,11 @@
       <mat-option value="Sandwich">Vegetarian</mat-option>
     </mat-select>
     <mat-hint>Kind of meal offered</mat-hint>
-    <mat-error *ngIf="!type.valid && !type.pristine">Sandwich type is required</mat-error>
+    <mat-error>Sandwich type is required</mat-error>
   </mat-form-field>
 
   <mat-form-field class="description">
-    <textarea matInput placeholder="Description" rows="4"
+    <textarea matInput placeholder="Description" rows="4" maxlength="500"
       id="descriptionInput" name="descriptionInput"
       [(ngModel)]="currentSandwich.description" #description="ngModel">
     </textarea>
@@ -50,17 +50,35 @@
       id="quantityInput" name="quantityInput"
       [(ngModel)]="currentSandwich.quantity" #quantity="ngModel">
     <mat-hint>The number of portions or plates available.</mat-hint>
-    <mat-error *ngIf="!quantity.valid">Quantity is required</mat-error>
+    <mat-error>Quantity is required</mat-error>
+  </mat-form-field>
+
+  <app-address-autocomplete class="address" [(address)]="currentSandwich.address"
+    [required]="true"
+    hint="Where the sandwich will be picked up."></app-address-autocomplete>
+
+  <mat-form-field class="address-detail">
+    <textarea type="text" matInput placeholder="Address details" maxlength="500"
+      id="addressDetailInput" name="addressDetailInput"
+      [(ngModel)]="currentSandwich.addressDetail" #quantity="ngModel"></textarea>
+    <mat-hint>More detail on the address like the appartment, floor or room number.</mat-hint>
   </mat-form-field>
 
   <mat-form-field class="image">
     <input matInput placeholder="Image"
       id="imageInput" name="imageInput"
-      [(ngModel)]="currentSandwich.thumbnail" #thumbnail="ngModel">
+      [(ngModel)]="currentSandwich.thumbnail" #thumbnail="ngModel" (change)="onImageChange(thumbnail.control)">
     <mat-hint>Link to your image of the sandwich</mat-hint>
+    <mat-error *ngIf="thumbnail.errors?.imageLoading">Wait for image validation...</mat-error>
+    <mat-error *ngIf="thumbnail.errors?.loadingError">Couldn't fetch the image. Verify the url.</mat-error>
+    <mat-error *ngIf="thumbnail.errors?.invalidImage">Image type is not supported. Supported format : jpeg, png, bmp, svg.</mat-error>
   </mat-form-field>
+  <div class="image-preview">
+    <img [src]="imageSource" alt="Image preview">
+  </div>
 
-  <button type="submit" class="action primary-button" mat-raised-button [disabled]="!sandwichForm.form.valid">Submit</button>
+  <button type="submit" class="action primary-button" mat-raised-button 
+    [disabled]="!sandwichForm.form.valid || !addressIsValid()">Submit</button>
 </form>
 
 <ng-template #sandwichLoading>

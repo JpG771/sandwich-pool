@@ -1,7 +1,7 @@
 import { Component, ContentChild, EventEmitter, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
 import { MatSliderChange } from '@angular/material';
 import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { throttleTime } from 'rxjs/operators';
 import { SandwichFilters } from '../../models/sandwich-filters';
 
 @Component({
@@ -14,6 +14,7 @@ export class SandwichFilteringComponent implements OnInit, OnDestroy {
   @ContentChild(TemplateRef, { static: false }) additionalFiltersTemplate: TemplateRef<any>;
 
   @Output() sandwichFiltersChange: EventEmitter<SandwichFilters> = new EventEmitter();
+  @Output() closing: EventEmitter<void> = new EventEmitter();
 
   sandwichFilters: SandwichFilters;
   maxPriceChanged$: Subject<number> = new Subject();
@@ -23,10 +24,10 @@ export class SandwichFilteringComponent implements OnInit, OnDestroy {
     this.sandwichFilters = this.getDefaultFilters();
     this.sandwichFiltersChange.emit(this.sandwichFilters);
     this.maxPriceChanged$.pipe(
-      debounceTime(300)
+      throttleTime(300)
     ).subscribe(value => this.sandwichFilters.maxPrice = value);
     this.minPriceChanged$.pipe(
-      debounceTime(300)
+      throttleTime(300)
     ).subscribe(value => this.sandwichFilters.minPrice = value);
   }
   ngOnDestroy(): void {
@@ -44,6 +45,10 @@ export class SandwichFilteringComponent implements OnInit, OnDestroy {
 
   onMaxPriceChanged(change: MatSliderChange): void {
     this.maxPriceChanged$.next(change.value);
+  }
+
+  onClose(): void {
+    this.closing.emit();
   }
 
   private getDefaultFilters = (): SandwichFilters => ({

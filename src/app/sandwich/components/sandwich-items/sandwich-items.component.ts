@@ -1,7 +1,6 @@
 import { Component, Inject, Input, TemplateRef } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Reservation } from '../../models/reservation';
 import { Sandwich } from '../../models/sandwich';
 import { SandwichFilters } from '../../models/sandwich-filters';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
@@ -77,7 +76,7 @@ export class SandwichItemsComponent {
   }
 
   private filterByQuantity(quantity?: number): (value: Sandwich, index: number, array: Array<Sandwich>) => boolean {
-    return sandwich => (quantity ? sandwich.quantity >= quantity : true);
+    return sandwich => (quantity ? sandwich.quantityLeft >= quantity : true);
   }
 
   /**

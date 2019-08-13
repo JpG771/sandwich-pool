@@ -7,6 +7,7 @@ import { Reservation } from '../../models/reservation';
 import { RESERVATION_SERVICE_TOKEN_NAME, ReservationService } from '../../models/reservation-service';
 import { Sandwich } from '../../models/sandwich';
 import { SandwichFilters } from '../../models/sandwich-filters';
+import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
 import { SandwichItemsComponent } from '../sandwich-items/sandwich-items.component';
 
 @Component({
@@ -26,6 +27,7 @@ export class SandwichListComponent implements OnInit {
 
   constructor(
     @Inject(USER_SERVICE_TOKEN_NAME) private userService: UserService,
+    @Inject(SANDWICH_SERVICE_TOKEN_NAME) private sandwichService: SandwichService,
     @Inject(RESERVATION_SERVICE_TOKEN_NAME) private reservationService: ReservationService,
     private alertService: AlertService,
   ) { }
@@ -59,10 +61,15 @@ export class SandwichListComponent implements OnInit {
       userId: this.itemsComponent.userId,
       quantity: 1
     };
-    this.reservationService.add(newReservation).subscribe(result => {
-      this.reservations.push(result);
-      this.itemsComponent.refresh();
-      this.alertService.showSuccess('Reservation completed!');
+    this.reservationService.add(newReservation).subscribe(reservationResult => {
+      sandwich.quantityLeft = sandwich.quantityLeft - 1;
+      this.sandwichService.edit(sandwich).subscribe(sandwichResult => {
+        this.reservations.push(reservationResult);
+        this.itemsComponent.refresh();
+        this.alertService.showSuccess('Reservation completed!');
+      }, error => {
+        this.alertService.showError('Could not complete while saving the sandwich, please try again later.');
+      });
     }, error => {
       this.alertService.showError('Could not complete reservation, please try again later.');
     });

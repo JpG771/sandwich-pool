@@ -1,0 +1,17 @@
+<mat-form-field>
+  <input matInput type="text" placeholder="Address" [matAutocomplete]="addressAutocomplete" [required]="required"
+    id="addressInput" name="addressInput"
+    autocorrect="off" autocapitalize="off" spellcheck="off" maxlength="500"
+    (keydown.enter)="$event.preventDefault()" (keyup)="onKeyUp()"
+    [(ngModel)]="address.name">
+  <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
+  <mat-error *ngIf="required">The address is required.</mat-error>
+  <mat-spinner *ngIf="loading" class="spinner" [diameter]="24"></mat-spinner>
+  <button mat-button (click)="$event.preventDefault();setCurrentLocation();" title="My location"><mat-icon aria-hidden="true">my_location</mat-icon></button>
+</mat-form-field>
+<mat-autocomplete #addressAutocomplete="matAutocomplete">
+  <mat-option *ngFor="let option of addressSuggestions" [value]="option.description" (click)="setGeoLocation(option)">
+    {{ option.description }}
+  </mat-option>
+</mat-autocomplete>
+<div class="geo-location">Latitude : {{ address.latitude }} - Longitude : {{ address.longitude }}</div>
