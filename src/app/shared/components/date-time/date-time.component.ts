@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { toISO, toLocalDate, toLocalTime } from '../../utils/date.util';
 
@@ -13,6 +14,7 @@ export class DateTimeComponent implements OnChanges {
   @Input() minDate: string;
   @Input() maxDate: string;
   @Input() hint: string;
+  @Input() required: boolean;
   @Output() datetimeChange = new EventEmitter<string>();
 
   date: string;
@@ -30,7 +32,7 @@ export class DateTimeComponent implements OnChanges {
     }
   }
 
-  onDateChanged(event: MatDatepickerInputEvent<Date>) {
+  onDateChanged(dateControl: FormControl, event: MatDatepickerInputEvent<Date>) {
     if (event.value) {
       this.date = event.value.toISOString().substring(0, 10);
       if (this.date) {
@@ -40,6 +42,13 @@ export class DateTimeComponent implements OnChanges {
     } else {
       this.date = undefined;
       this.datetimeChange.emit(undefined);
+    }
+    if (this.required) {
+      if (this.date === undefined) {
+        dateControl.setErrors({ required: true });
+      } else {
+        dateControl.setErrors(null);
+      }
     }
   }
 

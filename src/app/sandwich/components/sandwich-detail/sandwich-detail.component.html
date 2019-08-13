@@ -65,7 +65,7 @@
   </mat-form-field>
 
   <app-date-time [(datetime)]="currentSandwich.datePickUp"
-    [minDate]="currentDate"
+    [minDate]="currentDate" [required]="true"
     hint="The date and time you'll distribute the sandwich"></app-date-time>
   <app-date-time [(datetime)]="currentSandwich.dateLimit"
     [minDate]="currentDate" [maxDate]="currentSandwich.datePickUp"
@@ -85,7 +85,7 @@
   </div>
 
   <button type="submit" class="action primary-button" mat-raised-button 
-    [disabled]="!sandwichForm.form.valid || !addressIsValid()">Submit</button>
+    [disabled]="!sandwichForm.form.valid || !addressIsValid() || !currentSandwich.datePickUp">Submit</button>
 </form>
 
 <ng-template #sandwichLoading>
