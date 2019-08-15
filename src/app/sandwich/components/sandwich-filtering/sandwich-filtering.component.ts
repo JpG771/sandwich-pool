@@ -2,7 +2,8 @@ import { Component, ContentChild, EventEmitter, OnDestroy, OnInit, Output, Templ
 import { MatSliderChange } from '@angular/material';
 import { Subject } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
-import { SandwichFilters } from '../../models/sandwich-filters';
+import { toNumber } from 'src/app/shared/utils/date.util';
+import { SandwichFilter } from '../../models/sandwich-filters';
 
 @Component({
   selector: 'app-sandwich-filtering',
@@ -13,45 +14,53 @@ export class SandwichFilteringComponent implements OnInit, OnDestroy {
 
   @ContentChild(TemplateRef, { static: false }) additionalFiltersTemplate: TemplateRef<any>;
 
-  @Output() sandwichFiltersChange: EventEmitter<SandwichFilters> = new EventEmitter();
+  @Output() sandwichFiltersChange: EventEmitter<SandwichFilter> = new EventEmitter();
   @Output() closing: EventEmitter<void> = new EventEmitter();
 
-  sandwichFilters: SandwichFilters;
-  maxPriceChanged$: Subject<number> = new Subject();
-  minPriceChanged$: Subject<number> = new Subject();
+  sandwichFilters: SandwichFilter;
+  sliderChanged$: Subject<{ key: string, value: number }> = new Subject();
+
+  dateFrom: string;
+  dateTo: string;
 
   ngOnInit() {
     this.sandwichFilters = this.getDefaultFilters();
     this.sandwichFiltersChange.emit(this.sandwichFilters);
-    this.maxPriceChanged$.pipe(
+    this.sliderChanged$.pipe(
       throttleTime(300)
-    ).subscribe(value => this.sandwichFilters.maxPrice = value);
-    this.minPriceChanged$.pipe(
-      throttleTime(300)
-    ).subscribe(value => this.sandwichFilters.minPrice = value);
+    ).subscribe(value => this.sandwichFilters[value.key] = value.value);
   }
   ngOnDestroy(): void {
-    this.maxPriceChanged$.unsubscribe();
-    this.minPriceChanged$.unsubscribe();
+    this.sliderChanged$.unsubscribe();
   }
 
   onSubmit(): void {
+    // Change date filters to number
+    this.sandwichFilters.dateFrom = toNumber(this.dateFrom);
+    this.sandwichFilters.dateTo = toNumber(this.dateTo);
+    // Send the changes
     this.sandwichFiltersChange.emit(this.sandwichFilters);
   }
 
-  onMinPriceChanged(change: MatSliderChange): void {
-    this.minPriceChanged$.next(change.value);
-  }
-
-  onMaxPriceChanged(change: MatSliderChange): void {
-    this.maxPriceChanged$.next(change.value);
+  onSliderChanged(key: string, change: MatSliderChange): void {
+    this.sliderChanged$.next({ key, value: change.value });
   }
 
   onClose(): void {
     this.closing.emit();
   }
 
-  private getDefaultFilters = (): SandwichFilters => ({
-    quantity: 1
+  onDateFromChanged(fromDate: string) {
+    this.dateTo = fromDate;
+  }
+
+  private getDefaultFilters = (): SandwichFilter => ({
+    quantity: 1,
+    distance: 10,
+    address: {
+      name: undefined,
+      longitude: undefined,
+      latitude: undefined
+     }
   })
 }

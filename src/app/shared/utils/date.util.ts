@@ -18,3 +18,7 @@ DateTime.fromISO(value, { zone: 'utc', setZone: false }).toLocal().toFormat('HH:
 /** Format the date time into the iso format for easy storing */
 export const toISO = (value: string) =>
 DateTime.fromISO(value, { zone: 'local', setZone: false }).toUTC().toISO();
+
+/** Format the date time into milliseconds for easy comparison */
+export const toNumber = (value: string) =>
+DateTime.fromISO(value, { zone: 'local', setZone: false }).toMillis();

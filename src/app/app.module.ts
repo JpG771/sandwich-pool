@@ -31,7 +31,7 @@ import { USER_SERVICE_TOKEN_NAME } from './core/models/user-service';
     ...environment.additionnalModules,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAowj5f2H9E5ihSKv0NGtJVdfGfn1Rrw-w',
+      apiKey: environment.mapsApi,
       libraries: ['places']
     })
   ],

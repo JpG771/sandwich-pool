@@ -1,0 +1,9 @@
+<mat-form-field class="date">
+  <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [placeholder]="placeholder"
+    [ngModel]="date" [required]="required" (dateChange)="onDateChanged(dateControl.control, $event)"
+    #dateControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker" class="toggle-button"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-hint *ngIf="hint">{{ hint }}</mat-hint>
+  <mat-error>The date is required</mat-error>
+</mat-form-field>

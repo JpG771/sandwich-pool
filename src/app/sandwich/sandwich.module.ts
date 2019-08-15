@@ -14,6 +14,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { environment } from 'src/environments/environment';
 import { AddressAutocompleteModule } from '../shared/components/address-autocomplete/address-autocomplete.module';
 import { DateTimeModule } from '../shared/components/date-time/date-time.module';
+import { DateModule } from '../shared/components/date/date.module';
 import { AlertModule } from '../shared/services/alert/alert.module';
 import { MySandwichComponent } from './components/my-sandwich/my-sandwich.component';
 import { SandwichDetailComponent } from './components/sandwich-detail/sandwich-detail.component';
@@ -30,6 +31,7 @@ import { SandwichRoutingModule } from './sandwich.routing';
     AddressAutocompleteModule,
     AlertModule,
     CommonModule,
+    DateModule,
     DateTimeModule,
     FormsModule,
     SandwichRoutingModule,

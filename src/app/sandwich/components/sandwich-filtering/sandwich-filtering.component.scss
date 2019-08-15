@@ -10,3 +10,23 @@ form {
   padding-right: 2em;
   margin-bottom: 1em;
 }
+
+.price, .distance {
+  display: flex;
+
+  .mat-form-field {
+    flex: 1;
+  }
+}
+
+.distance {
+  margin-top: 0.5em;
+}
+
+.date {
+  display: flex;
+  
+  #dateFromInput {
+    margin-right: 1em;
+  }
+}

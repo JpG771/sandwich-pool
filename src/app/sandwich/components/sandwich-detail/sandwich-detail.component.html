@@ -65,10 +65,10 @@
   </mat-form-field>
 
   <app-date-time [(datetime)]="currentSandwich.datePickUp"
-    [minDate]="currentDate" [required]="true"
+    [minDate]="currentDate" [required]="true" placeholder="Pick up date"
     hint="The date and time you'll distribute the sandwich"></app-date-time>
   <app-date-time [(datetime)]="currentSandwich.dateLimit"
-    [minDate]="currentDate" [maxDate]="currentSandwich.datePickUp"
+    [minDate]="currentDate" [maxDate]="currentSandwich.datePickUp" placeholder="Limit date"
     hint="The last time someone can reserve your sandwich and have a share ready"></app-date-time>
 
   <mat-form-field class="image">

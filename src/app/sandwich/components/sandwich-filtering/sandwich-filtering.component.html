@@ -30,10 +30,10 @@
     <mat-slider min="0" max="100" step="5" thumbLabel
       id="minPriceSliderInput" name="minPriceSliderInput"
       [value]="sandwichFilters.minPrice"
-      (change)="onMinPriceChanged($event)">
+      (change)="onSliderChanged('minPrice', $event)">
     </mat-slider>
   </div>
-  <div class="max-price">
+  <div class="price">
     <mat-form-field>
       <input type="number" matInput placeholder="Maximum Price"
         id="maxPriceInput" name="maxPriceInput"
@@ -42,7 +42,7 @@
     <mat-slider min="0" max="100" step="5" thumbLabel
       id="maxPriceSliderInput" name="maxPriceSliderInput"
       [value]="sandwichFilters.maxPrice"
-      (change)="onMaxPriceChanged($event)">
+      (change)="onSliderChanged('maxPrice', $event)">
     </mat-slider>
   </div>
 
@@ -51,6 +51,29 @@
       id="quantityInput" name="quantityInput"
       [(ngModel)]="sandwichFilters.quantity" #quantity="ngModel">
   </mat-form-field>
+  
+  <app-address-autocomplete class="address" [(address)]="sandwichFilters.address"
+    hint="Where the sandwich will be picked up."></app-address-autocomplete>
+
+  <div class="distance">
+    <mat-form-field>
+      <input type="number" matInput placeholder="Maximum distance (km)"
+        id="distanceInput" name="distanceInput"
+        [(ngModel)]="sandwichFilters.distance">
+    </mat-form-field>
+    <mat-slider min="5" max="100" step="5" thumbLabel
+      id="distanceSliderInput" name="distanceSliderInput"
+      [value]="sandwichFilters.distance"
+      (change)="onSliderChanged('distance', $event)">
+    </mat-slider>
+  </div>
+
+  <div class="date">
+    <app-date id="dateFromInput" [(date)]="dateFrom" (dateChange)="onDateFromChanged($event)"
+      placeholder="Available from"></app-date>
+    <app-date [(date)]="dateTo" [minDate]="dateFrom"
+      placeholder="Available until"></app-date>
+  </div>
 
   <mat-form-field class="tag">
     <mat-select placeholder="Tags" multiple

@@ -1,6 +1,7 @@
 import { FakeReservationService } from 'src/db/fakeData/reservation.service';
 import { FakeSandwichService } from 'src/db/fakeData/sandwich.service';
 import { FakeUserService } from 'src/db/fakeData/user.service';
+import { secrets } from './secrets';
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -14,8 +15,9 @@ export const environment = {
     reservationService: FakeReservationService,
     userService: FakeUserService
   },
-  contactEmail: 'fill this information',
+  contactEmail: secrets.contactEmail,
   domain: 'localhost:4200',
+  mapsApi: secrets.mapsApi
 };
 
 /*

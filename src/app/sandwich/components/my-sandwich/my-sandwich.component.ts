@@ -3,7 +3,7 @@ import { USER_SERVICE_TOKEN_NAME, UserService } from 'src/app/core/models/user-s
 import { AlertService } from 'src/app/shared/services/alert/alert.service';
 import { RESERVATION_SERVICE_TOKEN_NAME, ReservationService } from '../../models/reservation-service';
 import { Sandwich } from '../../models/sandwich';
-import { SandwichFilters } from '../../models/sandwich-filters';
+import { SandwichFilter } from '../../models/sandwich-filters';
 import { SANDWICH_SERVICE_TOKEN_NAME, SandwichService } from '../../models/sandwich-service';
 import { sortSandwichByDate } from '../../utils/sandwich.util';
 import { SandwichItemsComponent } from '../sandwich-items/sandwich-items.component';
@@ -34,7 +34,7 @@ export class MySandwichComponent implements OnInit {
     });
   }
 
-  onFiltering(sandwichFilters: SandwichFilters): void {
+  onFiltering(sandwichFilters: SandwichFilter): void {
     this.itemsComponent.onFiltering(sandwichFilters);
   }
 
