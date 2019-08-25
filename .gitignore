@@ -63,3 +63,6 @@ typings/
 # Angular
 dist/
 secrets.ts
+
+# Firebase
+.firebase
