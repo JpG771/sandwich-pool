@@ -36,3 +36,15 @@ form {
     max-height: 15em;
   }
 }
+
+@media only screen and (max-width: 875px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    
+    > * {
+      margin-top: 1em;
+    }
+  }
+}

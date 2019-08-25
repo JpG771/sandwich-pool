@@ -1,6 +1,8 @@
 import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +29,8 @@ import { USER_SERVICE_TOKEN_NAME } from './core/models/user-service';
     BrowserAnimationsModule,
     BrowserModule,
     MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
     MatSidenavModule,
     ...environment.additionnalModules,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),

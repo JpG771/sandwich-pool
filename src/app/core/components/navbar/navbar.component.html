@@ -1,11 +1,25 @@
 <nav>
+  <button type="button" aria-label="Toggle navigation" 
+    mat-icon-button
+    (click)="isMenuOpen = !isMenuOpen"
+    *ngIf="(isHandset | async)!.matches">
+    <mat-icon>menu</mat-icon>
+  </button>
   <a mat-button routerLink="/" class="section-logo">
     <img src="/assets/images/icons/icon-128x128.png" alt="Sandwich" class="logo">
     Sandwich pooling
   </a>
-  <a mat-button routerLink="/sandwich" class="section-nav">Sandwiches list</a>
-  <a mat-button routerLink="/my-sandwich" class="section-nav">My Sandwiches</a>
-  <a mat-button routerLink="/sandwich/new" class="section-nav">Add a sandwich</a>
+  <a *ngIf="!(isHandset | async)!.matches" mat-button routerLink="/sandwich" class="section-nav">Sandwiches list</a>
+  <a *ngIf="!(isHandset | async)!.matches" mat-button routerLink="/my-sandwich" class="section-nav">My Sandwiches</a>
+  <a *ngIf="!(isHandset | async)!.matches" mat-button routerLink="/sandwich/new" class="section-nav">Add a sandwich</a>
   <div class="spacer">&nbsp;</div>
   <router-outlet name="avatar"></router-outlet>
 </nav>
+<div *ngIf="(isHandset | async)!.matches" [ngClass]="{ hidden: !isMenuOpen }" class="expendable-menu">
+  <mat-divider></mat-divider>
+  <a mat-button routerLink="/sandwich" class="section-nav" (click)="isMenuOpen = false">Sandwiches list</a>
+  <mat-divider></mat-divider>
+  <a mat-button routerLink="/my-sandwich" class="section-nav" (click)="isMenuOpen = false">My Sandwiches</a>
+  <mat-divider></mat-divider>
+  <a mat-button routerLink="/sandwich/new" class="section-nav" (click)="isMenuOpen = false">Add a sandwich</a>
+</div>
