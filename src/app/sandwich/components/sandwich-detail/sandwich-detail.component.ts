@@ -21,6 +21,7 @@ export class SandwichDetailComponent implements OnInit, OnDestroy {
   currentSandwich: Sandwich;
   routeSubscription$: Subscription;
   priceChanged$: Subject<number> = new Subject();
+  currentDate = getCurrentDateTime();
 
   // Variable to load image preview
   imageSource: string;
