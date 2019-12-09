@@ -13,3 +13,4 @@ Sandwich car pooling
 * Add map view of the sandwich
     * Enable swith between list and map view
 * Enable sandwich request
+* Enable sandwich reporting (NSFW sandwich)
