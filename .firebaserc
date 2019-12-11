@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "sandwich-pooling"
+  },
+  "targets": {
+    "sandwich-pooling": {
+      "hosting": {
+        "english": [
+          "sandwich-pooling"
+        ],
+        "french": [
+          "sandwich-partage"
+        ]
+      }
+    }
   }
 }
