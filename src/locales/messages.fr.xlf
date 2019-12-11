@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="bc7e4ae03ba81ff9bb736c8cb9dbe3d308838089" datatype="html">
+        <source>Share, don&apos;t waste!</source>
+        <target>Partage, ne gaspille pas!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/about/about.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8b57ca13e79edaf0bde495008d2e0ca7e06fa53e" datatype="html">
+        <source>Just like you can share you car, why not share that extra sandwich to your colleagues before it goes bad and help that poor person that can&apos;t cook! Sandwich Pooling is a service where everyone can post their leftovers and benefit the community by enabling food distribution and reducing waste.</source>
+        <target>Tout comme vous pouvez partager votre voiture, pourquoi ne pas partager ce sandwich supplémentaire à vos collègues avant qu’il ne tourne mal et aider cette pauvre personne qui ne peut pas cuisiner! Sandwich Partage est un service où chacun peut afficher ses restes et profiter à la collectivité en permettant la distribution des aliments et en réduisant le gaspillage.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/about/about.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a2838e844f38efd44dd7a6e38704b36db7c9fb83" datatype="html">
+        <source>I welcome all commentary and suggestion</source>
+        <target>Je suis ouvert à tout commentaire et suggestion.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/about/about.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
