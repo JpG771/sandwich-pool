@@ -14,3 +14,8 @@ Sandwich car pooling
     * Enable swith between list and map view
 * Enable sandwich request
 * Enable sandwich reporting (NSFW sandwich)
+
+
+## i18n Translation
+- Run `i18n:extract` command
+- Upload translated file to (Tiny Translator)[https://martinroob.github.io/tiny-translator/en/#/translate] or translate manually non `final` translations. Disable cache if you're having some problems with `Tiny Translator`.

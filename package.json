@@ -18,7 +18,7 @@
     "lint:fix": "ng lint --fix",
     "e2e": "ng e2e",
     "analyze": "npx webpack-bundle-analyzer dist/ng-eat-me/stats-es5.json",
-    "int:extract:fr": "ng xi18n --output-path src/locales --i18n-locale en"
+    "i18n:extract": "ng xi18n --i18n-format xlf --output-path src/locales --i18n-locale en && ng run ng-eat-me:xliffmerge && rimraf src/locales/messages.xlf"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +52,8 @@
     "@angular/cli": "^8.3.20",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "^8.2.14",
+    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
+    "@ngx-i18nsupport/tooling": "^8.0.3",
     "@types/googlemaps": "^3.38.1",
     "@types/jasmine": "^3.5.0",
     "@types/jasminewd2": "^2.0.8",
@@ -67,6 +69,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
+    "rimraf": "^3.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3",

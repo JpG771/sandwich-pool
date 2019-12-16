@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="f3f5ddbc1c208a508331fa73f7156d1baa3ede34" datatype="html">
         <source>Sandwiches list</source>
-        <target state="final">Sandwich liste</target>
+        <target state="final">Sandwiches</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
           <context context-type="linenumber">12</context>
@@ -69,6 +69,12 @@
           <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
+      </trans-unit><trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
+        <source>Address</source><target state="final">Adresse</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/address-autocomplete/address-autocomplete.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6e74a3f5885110398e6d38de6575f1eb5f5302b3" datatype="html">
         <source>The address is required.</source>
@@ -84,6 +90,12 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/date/date.component.html</context>
           <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="bf2da4f445397ee2472adbeff6c0b79232c3b583" datatype="html">
+        <source>Time (HH:ss)</source><target state="final">Heure (HH:ss)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/date-time/date-time.component.html</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e7d1f09a090bdbee4406ec60af547675d3cfdb00" datatype="html">
@@ -105,6 +117,12 @@
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
+      </trans-unit><trans-unit id="408258647b214a0a42468b70c47790d1f7c9e43b" datatype="html">
+        <source>From user</source><target state="final">Depuis l'usager</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1298c1d2bbbb7415f5494e800f6775fdb70f4df6" datatype="html">
         <source>Filters</source>
@@ -116,6 +134,12 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/sandwich/components/my-sandwich/my-sandwich.component.html</context>
           <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="4f8b2bb476981727ab34ed40fde1218361f92c45" datatype="html">
+        <source>Details</source><target state="final">Détails</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dee8b491b03d5eb2148dc0f09d2b373ad43c3100" datatype="html">
@@ -213,6 +237,12 @@
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
+      </trans-unit><trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source><target state="final">Description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="c17d51bfde27d84e997d4f24594561b14c39d922" datatype="html">
         <source>Long description of what is offered</source>
@@ -220,6 +250,12 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
           <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit><trans-unit id="4d6ee53858628de558a18623894a03c8673bce9e" datatype="html">
+        <source>Price</source><target state="final">Prix</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d13ae32474d160d4489ee79559bfb6aa57a331f2" datatype="html">
@@ -237,6 +273,12 @@
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
+      </trans-unit><trans-unit id="ca30c1aa79fb5ab487fbd2caa4ca01f2f6691d70" datatype="html">
+        <source>Quantity</source><target state="final">Quantité</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="da0af785061f025233b70b8412e9641f52d5ac52" datatype="html">
         <source>The number of portions or plates available</source>
@@ -253,6 +295,22 @@
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
           <context context-type="linenumber">53</context>
         </context-group>
+      </trans-unit><trans-unit id="3a807ca92f80e4613891876649de14e131bad4d4" datatype="html">
+        <source>Where the sandwich will be picked up.</source><target state="final">Où le sandwich sera disponible.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit><trans-unit id="97daa3fee83fc5ac548a298c213858ad3421c1f7" datatype="html">
+        <source>Address details</source><target state="final">Détail de l'adresse</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="ec04b90ad4b154dfa8271b03ece7a3a5f1fb49d4" datatype="html">
         <source>More detail on the address like the appartment, floor or room number.</source>
@@ -260,6 +318,24 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
           <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit><trans-unit id="e01da406ddbdc8886b39538398db37f646c46fa6" datatype="html">
+        <source>Pick up date</source><target state="final">Date de ramassage</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit><trans-unit id="6878f30c931c86d12cb41c60e3e2c6a880a414e7" datatype="html">
+        <source>Limit date</source><target state="final">Date limite</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit><trans-unit id="a5f9ba9bb9faa8284bcadb1cdbc6aaf969e9c4bb" datatype="html">
+        <source>Image</source><target state="final">Image</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="637e9fef273a14d5a2155fd732e083c40ba98915" datatype="html">
@@ -293,6 +369,18 @@
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
           <context context-type="linenumber">81</context>
         </context-group>
+      </trans-unit><trans-unit id="71c77bb8cecdf11ec3eead24dd1ba506573fa9cd" datatype="html">
+        <source>Submit</source><target state="final">Envoyer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit><trans-unit id="bc352c6c366521772e75fafb547c8a7a9ab02a2f" datatype="html">
+        <source>Filtering</source><target state="final">Filtres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
         <source>Close</source>
@@ -301,6 +389,54 @@
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
+      </trans-unit><trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
+        <source>Title</source><target state="final">Titre</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context><context context-type="linenumber">5</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit><trans-unit id="16d29b8a62314ed95ccb06896d75548eeb3a8358" datatype="html">
+        <source>Sandwich type</source><target state="final">Type de sandwich</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context><context context-type="linenumber">13</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context><context context-type="linenumber">14</context></context-group></trans-unit><trans-unit id="b1c1c6a43da1ad3e41b7a6e3aa5dcc24226cf580" datatype="html">
+        <source>Minimum Price</source><target state="final">Prix minimum</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit><trans-unit id="6dd84054c52e1edf631f37accb054de0c4071069" datatype="html">
+        <source>Maximum Price</source><target state="final">Prix maximum</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="e86a551c870f2e7f37c850458c3a7d5189538aaf" datatype="html">
+        <source>Minimum quantity</source><target state="final">Quantité minimum</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit><trans-unit id="a40150bee75ff2ad2261e09d07fe2c54c700d86b" datatype="html">
+        <source>Maximum distance (km)</source><target state="final">Distance maximal (km)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit><trans-unit id="60520a4747fc462820a7236b51fdd39fd2548ea5" datatype="html">
+        <source>Available from</source><target state="final">Disponible depuis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit><trans-unit id="1aae2ed103d290d59dd467f440ee401678febf58" datatype="html">
+        <source>Available until</source><target state="final">Disponible jusqu'à</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit><trans-unit id="cafc87479686947e2590b9f588a88040aeaf660b" datatype="html">
+        <source>Tags</source><target state="final">Étiquettes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
         <source>Filter</source>
@@ -308,6 +444,12 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
           <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit><trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+        <source>Edit</source><target state="final">Modifier</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/my-sandwich/my-sandwich.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">

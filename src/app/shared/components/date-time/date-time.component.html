@@ -2,7 +2,7 @@
   [placeholder]="placeholder"
   (dateChange)="onDateChanged($event)"></app-date>
 <mat-form-field class="time">
-  <input matInput placeholder="Time (HH:ss)" [ngModel]="time" (change)="onTimeChanged($event)"
+  <input matInput placeholder="Time (HH:ss)" i18n-placeholder [ngModel]="time" (change)="onTimeChanged($event)"
     [ngxTimepicker]="toggleIcon" [format]="24" [disableClick]="true">
   <ngx-material-timepicker-toggle [for]="toggleIcon" class="toggle-button">
     <mat-icon aria-hidden="true">access_time</mat-icon>

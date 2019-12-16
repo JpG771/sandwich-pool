@@ -2,7 +2,7 @@
 
 <form *ngIf="currentSandwich; else sandwichLoading" (ngSubmit)="onSubmit()" #sandwichForm="ngForm">
   <mat-form-field class="title">
-    <input matInput placeholder="Title" required maxlength="20"
+    <input matInput placeholder="Title" i18n-placeholder required maxlength="20"
       id="titleInput" name="titleInput"
       [(ngModel)]="currentSandwich.title" #title="ngModel">
     <mat-hint i18n>Short description</mat-hint>
@@ -10,7 +10,7 @@
   </mat-form-field>
   
   <mat-form-field class="type">
-    <mat-select placeholder="Sandwich type" required
+    <mat-select placeholder="Sandwich type" i18n-placeholder required
         id="typeInput" name="typeInput"
         [(ngModel)]="currentSandwich.type" #type="ngModel">
       <mat-option value="Sandwich" i18n>Sandwich</mat-option>
@@ -23,7 +23,7 @@
   </mat-form-field>
 
   <mat-form-field class="description">
-    <textarea matInput placeholder="Description" rows="4" maxlength="500"
+    <textarea matInput placeholder="Description" i18n-placeholder rows="4" maxlength="500"
       id="descriptionInput" name="descriptionInput"
       [(ngModel)]="currentSandwich.description" #description="ngModel">
     </textarea>
@@ -32,7 +32,7 @@
   
   <div class="price">
     <mat-form-field>
-      <input type="number" matInput placeholder="Price" required
+      <input type="number" matInput placeholder="Price" i18n-placeholder required
         id="priceInput" name="priceInput"
         [(ngModel)]="currentSandwich.price" #price="ngModel">
       <mat-error *ngIf="!price.valid" i18n>Price is required</mat-error>
@@ -46,7 +46,7 @@
   </div>
 
   <mat-form-field class="quantity">
-    <input type="number" matInput placeholder="Quantity" required
+    <input type="number" matInput placeholder="Quantity" i18n-placeholder required
       id="quantityInput" name="quantityInput"
       [(ngModel)]="currentSandwich.quantity" #quantity="ngModel">
     <mat-hint i18n>The number of portions or plates available</mat-hint>
@@ -55,24 +55,24 @@
 
   <app-address-autocomplete class="address" [(address)]="currentSandwich.address"
     [required]="true"
-    hint="Where the sandwich will be picked up."></app-address-autocomplete>
+    hint="Where the sandwich will be picked up." i18n-hint></app-address-autocomplete>
 
   <mat-form-field class="address-detail">
-    <textarea type="text" matInput placeholder="Address details" maxlength="500"
+    <textarea type="text" matInput placeholder="Address details" i18n-placeholder maxlength="500"
       id="addressDetailInput" name="addressDetailInput"
       [(ngModel)]="currentSandwich.addressDetail" #quantity="ngModel"></textarea>
     <mat-hint i18n>More detail on the address like the appartment, floor or room number.</mat-hint>
   </mat-form-field>
 
   <app-date-time [(datetime)]="currentSandwich.datePickUp"
-    [minDate]="currentDate" [required]="true" placeholder="Pick up date"
+    [minDate]="currentDate" [required]="true" placeholder="Pick up date" i18n-placeholder
     hint="The date and time you'll distribute the sandwich"></app-date-time>
   <app-date-time [(datetime)]="currentSandwich.dateLimit"
-    [minDate]="currentDate" [maxDate]="currentSandwich.datePickUp" placeholder="Limit date"
+    [minDate]="currentDate" [maxDate]="currentSandwich.datePickUp" placeholder="Limit date" i18n-placeholder
     hint="The last time someone can reserve your sandwich and have a share ready"></app-date-time>
 
   <mat-form-field class="image">
-    <input matInput placeholder="Image"
+    <input matInput placeholder="Image" i18n-placeholder
       id="imageInput" name="imageInput"
       [(ngModel)]="currentSandwich.thumbnail" #thumbnail="ngModel" (change)="onImageChange(thumbnail.control)">
     <mat-hint i18n>Link to your image of the sandwich</mat-hint>
@@ -85,7 +85,7 @@
   </div>
 
   <button type="submit" class="action primary-button" mat-raised-button 
-    [disabled]="!sandwichForm.form.valid || !addressIsValid() || !currentSandwich.datePickUp">Submit</button>
+    [disabled]="!sandwichForm.form.valid || !addressIsValid() || !currentSandwich.datePickUp" i18n>Submit</button>
 </form>
 
 <ng-template #sandwichLoading>

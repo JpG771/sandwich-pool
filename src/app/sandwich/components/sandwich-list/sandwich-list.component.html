@@ -11,7 +11,7 @@
         </mat-checkbox>
 
         <mat-form-field class="user">
-          <input matInput placeholder="From user" id="userInput" name="userInput" [(ngModel)]="filterUserId" />
+          <input matInput placeholder="From user" i18n-placeholder id="userInput" name="userInput" [(ngModel)]="filterUserId" />
           <!--<mat-hint>Email of the user</mat-hint>-->
         </mat-form-field>
       </ng-template>
@@ -24,7 +24,7 @@
     </button>
     <app-sandwich-items #items [actionTemplate]="actionTemplate"></app-sandwich-items>
     <ng-template #actionTemplate let-sandwich>
-      <a mat-raised-button [routerLink]="sandwich.id">Details</a>
+      <a mat-raised-button [routerLink]="sandwich.id" i18n>Details</a>
       <button mat-raised-button class="primary-button" [disabled]="sandwich.quantityLeft === 0" (click)="onReserve(sandwich)">
         <ng-container i18n>Reserve</ng-container>
         <ng-container> - </ng-container>

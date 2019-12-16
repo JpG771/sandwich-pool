@@ -1,7 +1,7 @@
 <mat-form-field>
-  <input matInput type="text" placeholder="Address" [matAutocomplete]="addressAutocomplete" [required]="required"
+  <input matInput type="text" placeholder="Address" i18n-placeholder [matAutocomplete]="addressAutocomplete" [required]="required"
     id="addressInput" name="addressInput"
-    autocorrect="off" autocapitalize="off" spellcheck="off" maxlength="500"
+    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off" maxlength="500"
     (keydown.enter)="$event.preventDefault()" (keyup)="onKeyUp()"
     [(ngModel)]="address.name">
   <mat-hint *ngIf="hint">{{ hint }}</mat-hint>

@@ -53,7 +53,7 @@
   </mat-form-field>
   
   <app-address-autocomplete class="address" [(address)]="sandwichFilters.address"
-    hint="Where the sandwich will be picked up."></app-address-autocomplete>
+    hint="Where the sandwich will be picked up." i18n-hint></app-address-autocomplete>
 
   <div class="distance">
     <mat-form-field>
@@ -72,7 +72,7 @@
     <app-date id="dateFromInput" [(date)]="dateFrom" (dateChange)="onDateFromChanged($event)"
       placeholder="Available from" i18n-placeholder></app-date>
     <app-date [(date)]="dateTo" [minDate]="dateFrom"
-      placeholder="Available until"></app-date>
+      placeholder="Available until" i18n-placeholder></app-date>
   </div>
 
   <mat-form-field class="tag">

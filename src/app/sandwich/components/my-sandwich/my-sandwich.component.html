@@ -6,7 +6,7 @@
     <button class="action" mat-raised-button (click)="drawer.open()" *ngIf="!drawer.opened"><mat-icon aria-hidden="true">filter_list</mat-icon><ng-container i18n>Filters</ng-container></button>
     <app-sandwich-items #items [actionTemplate]="actionTemplate" [additionalInfoTemplate]="additionalInfoTemplate"></app-sandwich-items>
     <ng-template #actionTemplate let-sandwich>
-      <a mat-raised-button [routerLink]="'../sandwich/' + sandwich.id">Edit</a>
+      <a mat-raised-button [routerLink]="'../sandwich/' + sandwich.id" i18n>Edit</a>
       <button mat-raised-button class="primary-button" (click)="onDelete(sandwich)"><ng-container i18n>Delete</ng-container></button>
     </ng-template>
     <ng-template #additionalInfoTemplate let-sandwich> </ng-template>

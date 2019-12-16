@@ -171,8 +171,23 @@
               "devServerTarget": "ng-eat-me:serve:production"
             }
           }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "src/locales",
+              "genDir": "src/locales",
+              "defaultLanguage": "en",
+              "languages": [
+                "fr"
+              ]
+            }
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ng-eat-me"
 }
