@@ -2,11 +2,11 @@
   <mat-drawer #drawer mode="side" opened role="search">
     <app-sandwich-filtering (sandwichFiltersChange)="onFiltering($event)" (closing)="drawer.close()">
       <ng-template>
-        <mat-checkbox id="showReserved" name="showReserved" [(ngModel)]="showReserved">
+        <mat-checkbox id="showReserved" name="showReserved" [(ngModel)]="showReserved" i18n>
           Show reserved sandwiches
         </mat-checkbox>
 
-        <mat-checkbox id="showMine" name="showMine" [(ngModel)]="showMine">
+        <mat-checkbox id="showMine" name="showMine" [(ngModel)]="showMine" i18n>
           Show my sandwiches
         </mat-checkbox>
 
@@ -20,13 +20,16 @@
   <mat-drawer-content class="list" role="list">
     <button *ngIf="!drawer.opened" class="action" mat-raised-button (click)="drawer.open()">
       <mat-icon aria-hidden="true">filter_list</mat-icon>
-      Filters
+      <ng-container i18n>Filters</ng-container>
     </button>
     <app-sandwich-items #items [actionTemplate]="actionTemplate"></app-sandwich-items>
     <ng-template #actionTemplate let-sandwich>
       <a mat-raised-button [routerLink]="sandwich.id">Details</a>
       <button mat-raised-button class="primary-button" [disabled]="sandwich.quantityLeft === 0" (click)="onReserve(sandwich)">
-        Reserve - {{ sandwich.price > 0 ? (sandwich.price | currency) : ' Free' }}
+        <ng-container i18n>Reserve</ng-container>
+        <ng-container> - </ng-container>
+        <span *ngIf="sandwich.price > 0; else freeTemplate">{{ sandwich.price | currency }}</span>
+        <ng-template #freeTemplate i18n>Free</ng-template>
       </button>
     </ng-template>
   </mat-drawer-content>

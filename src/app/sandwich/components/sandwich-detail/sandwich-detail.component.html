@@ -5,21 +5,21 @@
     <input matInput placeholder="Title" required maxlength="20"
       id="titleInput" name="titleInput"
       [(ngModel)]="currentSandwich.title" #title="ngModel">
-    <mat-hint>Short description</mat-hint>
-    <mat-error>Title is required</mat-error>
+    <mat-hint i18n>Short description</mat-hint>
+    <mat-error i18n>Title is required</mat-error>
   </mat-form-field>
   
   <mat-form-field class="type">
     <mat-select placeholder="Sandwich type" required
         id="typeInput" name="typeInput"
         [(ngModel)]="currentSandwich.type" #type="ngModel">
-      <mat-option value="Sandwich">Sandwich</mat-option>
-      <mat-option value="Sandwich">Gourmet</mat-option>
-      <mat-option value="Sandwich">Drink</mat-option>
-      <mat-option value="Sandwich">Vegetarian</mat-option>
+      <mat-option value="Sandwich" i18n>Sandwich</mat-option>
+      <mat-option value="Sandwich" i18n>Gourmet</mat-option>
+      <mat-option value="Sandwich" i18n>Drink</mat-option>
+      <mat-option value="Sandwich" i18n>Vegetarian</mat-option>
     </mat-select>
-    <mat-hint>Kind of meal offered</mat-hint>
-    <mat-error>Sandwich type is required</mat-error>
+    <mat-hint i18n>Kind of meal offered</mat-hint>
+    <mat-error i18n>Sandwich type is required</mat-error>
   </mat-form-field>
 
   <mat-form-field class="description">
@@ -27,7 +27,7 @@
       id="descriptionInput" name="descriptionInput"
       [(ngModel)]="currentSandwich.description" #description="ngModel">
     </textarea>
-    <mat-hint>Long description of what is offered</mat-hint>
+    <mat-hint i18n>Long description of what is offered</mat-hint>
   </mat-form-field>
   
   <div class="price">
@@ -35,22 +35,22 @@
       <input type="number" matInput placeholder="Price" required
         id="priceInput" name="priceInput"
         [(ngModel)]="currentSandwich.price" #price="ngModel">
-      <mat-error *ngIf="!price.valid">Price is required</mat-error>
-      <mat-hint>0 = Free</mat-hint>
+      <mat-error *ngIf="!price.valid" i18n>Price is required</mat-error>
+      <mat-hint i18n>0 = Free</mat-hint>
     </mat-form-field>
     <mat-slider min="0" max="100" step="5" thumbLabel
       id="priceSliderInput" name="priceSliderInput"
       [value]="currentSandwich.price"
       (change)="onSliderChanged($event)">
-    </mat-slider>      
+    </mat-slider>
   </div>
 
   <mat-form-field class="quantity">
     <input type="number" matInput placeholder="Quantity" required
       id="quantityInput" name="quantityInput"
       [(ngModel)]="currentSandwich.quantity" #quantity="ngModel">
-    <mat-hint>The number of portions or plates available</mat-hint>
-    <mat-error>Quantity is required</mat-error>
+    <mat-hint i18n>The number of portions or plates available</mat-hint>
+    <mat-error i18n>Quantity is required</mat-error>
   </mat-form-field>
 
   <app-address-autocomplete class="address" [(address)]="currentSandwich.address"
@@ -61,7 +61,7 @@
     <textarea type="text" matInput placeholder="Address details" maxlength="500"
       id="addressDetailInput" name="addressDetailInput"
       [(ngModel)]="currentSandwich.addressDetail" #quantity="ngModel"></textarea>
-    <mat-hint>More detail on the address like the appartment, floor or room number.</mat-hint>
+    <mat-hint i18n>More detail on the address like the appartment, floor or room number.</mat-hint>
   </mat-form-field>
 
   <app-date-time [(datetime)]="currentSandwich.datePickUp"
@@ -75,10 +75,10 @@
     <input matInput placeholder="Image"
       id="imageInput" name="imageInput"
       [(ngModel)]="currentSandwich.thumbnail" #thumbnail="ngModel" (change)="onImageChange(thumbnail.control)">
-    <mat-hint>Link to your image of the sandwich</mat-hint>
-    <mat-error *ngIf="thumbnail.errors?.imageLoading">Wait for image validation...</mat-error>
-    <mat-error *ngIf="thumbnail.errors?.loadingError">Couldn't fetch the image. Verify the url.</mat-error>
-    <mat-error *ngIf="thumbnail.errors?.invalidImage">Image type is not supported. Supported format : jpeg, png, bmp, svg.</mat-error>
+    <mat-hint i18n>Link to your image of the sandwich</mat-hint>
+    <mat-error *ngIf="thumbnail.errors?.imageLoading" i18n>Wait for image validation...</mat-error>
+    <mat-error *ngIf="thumbnail.errors?.loadingError" i18n>Couldn't fetch the image. Verify the url.</mat-error>
+    <mat-error *ngIf="thumbnail.errors?.invalidImage" i18n>Image type is not supported. Supported format : jpeg, png, bmp, svg.</mat-error>
   </mat-form-field>
   <div class="image-preview">
     <img [src]="imageSource" alt="Image preview">

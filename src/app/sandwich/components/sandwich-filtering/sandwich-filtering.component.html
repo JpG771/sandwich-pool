@@ -1,29 +1,29 @@
 <h2>
-  Filtering 
-  <button mat-raised-button (click)="onClose()"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> Close</button>
+  <ng-container i18n>Filtering</ng-container>
+  <button mat-raised-button (click)="onClose()"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> <ng-container i18n>Close</ng-container></button>
 </h2>
 
 <form *ngIf="sandwichFilters" (ngSubmit)="onSubmit()" #filtersForm="ngForm">
   <mat-form-field class="title">
-    <input matInput placeholder="Title"
+    <input matInput placeholder="Title" i18n-placeholder
       id="titleInput" name="titleInput"
       [(ngModel)]="sandwichFilters.title" #title="ngModel">
   </mat-form-field>
   
   <mat-form-field class="type">
-    <mat-select placeholder="Sandwich type" multiple
+    <mat-select placeholder="Sandwich type" i18n-placeholder multiple
         id="typeInput" name="typeInput"
         [(ngModel)]="sandwichFilters.type" #type="ngModel">
-      <mat-option value="Sandwich">Sandwich</mat-option>
-      <mat-option value="Sandwich">Gourmet</mat-option>
-      <mat-option value="Sandwich">Drink</mat-option>
-      <mat-option value="Sandwich">Vegetarian</mat-option>
+      <mat-option value="Sandwich" i18n>Sandwich</mat-option>
+      <mat-option value="Sandwich" i18n>Gourmet</mat-option>
+      <mat-option value="Sandwich" i18n>Drink</mat-option>
+      <mat-option value="Sandwich" i18n>Vegetarian</mat-option>
     </mat-select>
   </mat-form-field>
   
   <div class="price">
     <mat-form-field>
-      <input type="number" matInput placeholder="Minimum Price"
+      <input type="number" matInput placeholder="Minimum Price" i18n-placeholder
         id="minPriceInput" name="minPriceInput"
         [(ngModel)]="sandwichFilters.minPrice" #minPrice="ngModel">
     </mat-form-field>
@@ -35,7 +35,7 @@
   </div>
   <div class="price">
     <mat-form-field>
-      <input type="number" matInput placeholder="Maximum Price"
+      <input type="number" matInput placeholder="Maximum Price" i18n-placeholder
         id="maxPriceInput" name="maxPriceInput"
         [(ngModel)]="sandwichFilters.maxPrice" #maxPrice="ngModel">
     </mat-form-field>
@@ -47,7 +47,7 @@
   </div>
 
   <mat-form-field class="quantity">
-    <input type="number" matInput placeholder="Minimum quantity"
+    <input type="number" matInput placeholder="Minimum quantity" i18n-placeholder
       id="quantityInput" name="quantityInput"
       [(ngModel)]="sandwichFilters.quantity" #quantity="ngModel">
   </mat-form-field>
@@ -57,7 +57,7 @@
 
   <div class="distance">
     <mat-form-field>
-      <input type="number" matInput placeholder="Maximum distance (km)"
+      <input type="number" matInput placeholder="Maximum distance (km)" i18n-placeholder
         id="distanceInput" name="distanceInput"
         [(ngModel)]="sandwichFilters.distance">
     </mat-form-field>
@@ -70,13 +70,13 @@
 
   <div class="date">
     <app-date id="dateFromInput" [(date)]="dateFrom" (dateChange)="onDateFromChanged($event)"
-      placeholder="Available from"></app-date>
+      placeholder="Available from" i18n-placeholder></app-date>
     <app-date [(date)]="dateTo" [minDate]="dateFrom"
       placeholder="Available until"></app-date>
   </div>
 
   <mat-form-field class="tag">
-    <mat-select placeholder="Tags" multiple
+    <mat-select placeholder="Tags" i18n-placeholder multiple
         id="tagInput" name="tagInput"
         [(ngModel)]="sandwichFilters.tags" #type="ngModel">
     </mat-select>
@@ -84,5 +84,5 @@
 
   <ng-container [ngTemplateOutlet]="additionalFiltersTemplate"></ng-container>
 
-  <button type="submit" class="action" mat-raised-button>Filter</button>
+  <button type="submit" class="action" mat-raised-button i18n>Filter</button>
 </form>

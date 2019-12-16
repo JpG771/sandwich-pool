@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="bc7e4ae03ba81ff9bb736c8cb9dbe3d308838089" datatype="html">
-        <source>Share, don&apos;t waste!</source>
-        <target>Partage, ne gaspille pas!</target>
+        <source>Share, don't waste!</source>
+        <target state="final">Partage, ne gaspille pas!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/about/about.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8b57ca13e79edaf0bde495008d2e0ca7e06fa53e" datatype="html">
-        <source>Just like you can share you car, why not share that extra sandwich to your colleagues before it goes bad and help that poor person that can&apos;t cook! Sandwich Pooling is a service where everyone can post their leftovers and benefit the community by enabling food distribution and reducing waste.</source>
-        <target>Tout comme vous pouvez partager votre voiture, pourquoi ne pas partager ce sandwich supplémentaire à vos collègues avant qu’il ne tourne mal et aider cette pauvre personne qui ne peut pas cuisiner! Sandwich Partage est un service où chacun peut afficher ses restes et profiter à la collectivité en permettant la distribution des aliments et en réduisant le gaspillage.</target>
+        <source>Just like you can share you car, why not share that extra sandwich to your colleagues before it goes bad and help that poor person that can't cook! Sandwich Pooling is a service where everyone can post their leftovers and benefit the community by enabling food distribution and reducing waste.</source>
+        <target state="final">Tout comme vous pouvez partager votre voiture, pourquoi ne pas partager ce sandwich supplémentaire à vos collègues avant qu’il ne tourne mal et aider cette pauvre personne qui ne peut pas cuisiner! Sandwich Partage est un service où chacun peut afficher ses restes et profiter à la collectivité en permettant la distribution des aliments et en réduisant le gaspillage.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/about/about.component.html</context>
           <context context-type="linenumber">7</context>
@@ -20,10 +20,302 @@
       </trans-unit>
       <trans-unit id="a2838e844f38efd44dd7a6e38704b36db7c9fb83" datatype="html">
         <source>I welcome all commentary and suggestion</source>
-        <target>Je suis ouvert à tout commentaire et suggestion.</target>
+        <target state="final">Je suis ouvert à tout commentaire et suggestion.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/about/about.component.html</context>
           <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ebf60caf3b923f063ecac7a8a09203738ffd446b" datatype="html">
+        <source>Sandwich pooling</source>
+        <target state="final">Sandwich partage</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f3f5ddbc1c208a508331fa73f7156d1baa3ede34" datatype="html">
+        <source>Sandwiches list</source>
+        <target state="final">Sandwich liste</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ffe54324fe778003319a62ac153b93befb76b05" datatype="html">
+        <source>My Sandwiches</source>
+        <target state="final">Mes sandwiches</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="499d1a68da9cf28a942d12f919baf309b3830a67" datatype="html">
+        <source>Add a sandwich</source>
+        <target state="final">Ajouter un sandwich</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6e74a3f5885110398e6d38de6575f1eb5f5302b3" datatype="html">
+        <source>The address is required.</source>
+        <target state="final">L'adresse est obligatoire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/address-autocomplete/address-autocomplete.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fbb6316a4fd2bb78f9879a82927e23e0565052c8" datatype="html">
+        <source>The date is required</source>
+        <target state="final">La date est obligatoire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/date/date.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e7d1f09a090bdbee4406ec60af547675d3cfdb00" datatype="html">
+        <source>
+          Show reserved sandwiches
+        </source>
+        <target state="final">Voir les sandwiches réservés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="18d114e235ce8a7bee0b571962421421cf1bc8b9" datatype="html">
+        <source>
+          Show my sandwiches
+        </source>
+        <target state="final">Voir mes sandwiches</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1298c1d2bbbb7415f5494e800f6775fdb70f4df6" datatype="html">
+        <source>Filters</source>
+        <target state="final">Filtres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/my-sandwich/my-sandwich.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dee8b491b03d5eb2148dc0f09d2b373ad43c3100" datatype="html">
+        <source>Reserve</source>
+        <target state="final">Réserver</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
+        <source>Free</source>
+        <target state="final">Gratuit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-list/sandwich-list.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="512b045163a7187b2fc5d554e5f59fb3e49e174b" datatype="html">
+        <source>Short description</source>
+        <target state="final">Courte description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="629ad90704c47ad15d4168931d8ab26bdc32e90d" datatype="html">
+        <source>Title is required</source>
+        <target state="final">Le titre est obligatoire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cef3557287871e1ae140f8254f91036999839960" datatype="html">
+        <source>Sandwich</source>
+        <target state="final">Sandwich</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="70671268842f3f1e080c2a6dfc2a386c287a5b56" datatype="html">
+        <source>Gourmet</source>
+        <target state="final">Gourmet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="054987e5016ba30b1353a0fd59aeaf3fc15e42fe" datatype="html">
+        <source>Drink</source>
+        <target state="final">Boisson</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3fb93c4140ea4c4fdab1216e217572f761b58a2a" datatype="html">
+        <source>Vegetarian</source>
+        <target state="final">Végétarien</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1fb245a421fa912bd7bbb561d7ec563a4d276e83" datatype="html">
+        <source>Kind of meal offered</source>
+        <target state="final">Type de repas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="327e3ca79c07fce841f00366b7458309c61ce434" datatype="html">
+        <source>Sandwich type is required</source>
+        <target state="final">Le type de sandwich est obligatoire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c17d51bfde27d84e997d4f24594561b14c39d922" datatype="html">
+        <source>Long description of what is offered</source>
+        <target state="final">Description longue de ce qui est offert</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d13ae32474d160d4489ee79559bfb6aa57a331f2" datatype="html">
+        <source>Price is required</source>
+        <target state="final">le prix est obligatoire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2bf062ab4ec1fd990e7405e12ee1c60aee2a2c0e" datatype="html">
+        <source>0 = Free</source>
+        <target state="final">0 = Gratuit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="da0af785061f025233b70b8412e9641f52d5ac52" datatype="html">
+        <source>The number of portions or plates available</source>
+        <target state="final">Le nombre de portions ou de plats offerts</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e272856f0aa285db4bcaa2bd28c2884839f71529" datatype="html">
+        <source>Quantity is required</source>
+        <target state="final">La quantité est obligatoire</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ec04b90ad4b154dfa8271b03ece7a3a5f1fb49d4" datatype="html">
+        <source>More detail on the address like the appartment, floor or room number.</source>
+        <target state="final">Plus de détails sur l'adresse comme le numéro d'appartement, de l'étage ou du bureau.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="637e9fef273a14d5a2155fd732e083c40ba98915" datatype="html">
+        <source>Link to your image of the sandwich</source>
+        <target state="final">Lien vers l'image du sandwich</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="39ce1adee7585c62e8ae7b562c436b71f304a3bb" datatype="html">
+        <source>Wait for image validation...</source>
+        <target state="final">En attente de validation...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="612b16c5357d6f315e9914a89a3d1c3de9e71376" datatype="html">
+        <source>Couldn't fetch the image. Verify the url.</source>
+        <target state="final">Impossible d'obtenir l'image. Vérifier l'URL.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aadd78139070dc9706327dc1438194baa8dbe529" datatype="html">
+        <source>Image type is not supported. Supported format : jpeg, png, bmp, svg.</source>
+        <target state="final">L'image n'est pas de type supporté. Type supporté: jpeg, png, bmp, svg.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-detail/sandwich-detail.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
+        <source>Close</source>
+        <target state="final">Fermer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
+        <source>Filter</source>
+        <target state="final">Filtrer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/sandwich-filtering/sandwich-filtering.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
+        <source>Delete</source>
+        <target state="final">Supprimer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/sandwich/components/my-sandwich/my-sandwich.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
     </body>
