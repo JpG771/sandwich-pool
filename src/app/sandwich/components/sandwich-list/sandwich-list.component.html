@@ -23,14 +23,27 @@
       <ng-container i18n>Filters</ng-container>
     </button>
     <app-sandwich-items #items [actionTemplate]="actionTemplate"></app-sandwich-items>
-    <ng-template #actionTemplate let-sandwich>
+    <ng-template #actionTemplate let-sandwich let-index="index">
       <a mat-raised-button [routerLink]="sandwich.id" i18n>Details</a>
-      <button mat-raised-button class="primary-button" [disabled]="sandwich.quantityLeft === 0" (click)="onReserve(sandwich)">
-        <ng-container i18n>Reserve</ng-container>
-        <ng-container> - </ng-container>
-        <span *ngIf="sandwich.price > 0; else freeTemplate">{{ sandwich.price | currency }}</span>
-        <ng-template #freeTemplate i18n>Free</ng-template>
-      </button>
+      <ng-container *ngIf="sandwich.quantityLeft > 0">
+        <div class="quantity">
+          <span i18n class="info">Qty to reserve</span>
+          <input matInput 
+            placeholder="1" 
+            type="number"
+            min="1"
+            [max]="sandwich.quantityLeft" 
+            [(ngModel)]="quantityToReserve[index]" 
+            #quantity="ngModel">
+          <ng-container> / {{ sandwich.quantityLeft }}</ng-container>
+        </div>
+        <button mat-raised-button class="primary-button" (click)="onReserve(sandwich, index)">
+          <ng-container i18n>Reserve</ng-container>
+          <ng-container> - </ng-container>
+          <span *ngIf="sandwich.price > 0; else freeTemplate" class="price">{{ getSandwichPrice(sandwich, index) | currency }}</span>
+          <ng-template #freeTemplate i18n>Free</ng-template>
+        </button>
+      </ng-container>
     </ng-template>
   </mat-drawer-content>
 </mat-drawer-container>

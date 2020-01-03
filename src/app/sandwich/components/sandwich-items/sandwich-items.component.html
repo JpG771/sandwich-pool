@@ -1,4 +1,4 @@
-<ng-container *ngFor="let sandwich of (sandwiches$ | async)">
+<ng-container *ngFor="let sandwich of (sandwiches$ | async); index as i">
   <mat-card class="item" role="listitem">  
     <img *ngIf="sandwich.thumbnail" [src]="sandwich.thumbnail" mat-card-md-image class="thumbnail">
     <mat-card-header>
@@ -14,7 +14,7 @@
       </ng-container>
     </mat-card-content>
     <mat-card-actions class="action">
-      <ng-container [ngTemplateOutlet]="actionTemplate" [ngTemplateOutletContext]="{ $implicit: sandwich }"></ng-container>
+      <ng-container [ngTemplateOutlet]="actionTemplate" [ngTemplateOutletContext]="{ $implicit: sandwich, index: i}"></ng-container>
     </mat-card-actions>
   </mat-card>
 </ng-container>

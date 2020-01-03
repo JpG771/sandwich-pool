@@ -34,7 +34,8 @@ mat-card-content {
   }
 
   .action {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
     margin-bottom: 0.5em
   }

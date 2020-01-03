@@ -23,6 +23,7 @@ export class SandwichListComponent implements OnInit {
   filterUserId: string;
 
   reservations: Array<Reservation>;
+  quantityToReserve: number[] = [];
 
   @ViewChild('items', { static: true }) itemsComponent: SandwichItemsComponent;
 
@@ -56,15 +57,17 @@ export class SandwichListComponent implements OnInit {
 
   onFiltering(sandwichFilters: SandwichFilter): void {
     this.itemsComponent.onFiltering(sandwichFilters);
+    this.quantityToReserve = [];
   }
-  onReserve(sandwich: Sandwich): void {
+  onReserve(sandwich: Sandwich, index: number): void {
+    const quantityToReserve = this.quantityToReserve[index] || 1;
     const newReservation: Reservation = {
       sandwichId: sandwich.id,
       userId: this.itemsComponent.userId,
-      quantity: 1
+      quantity: quantityToReserve
     };
+    sandwich.quantityLeft -= quantityToReserve;
     this.reservationService.add(newReservation).subscribe(reservationResult => {
-      sandwich.quantityLeft = sandwich.quantityLeft - 1;
       this.sandwichService.edit(sandwich).subscribe(sandwichResult => {
         this.reservations.push(reservationResult);
         this.itemsComponent.refresh();
@@ -74,7 +77,12 @@ export class SandwichListComponent implements OnInit {
       });
     }, error => {
       this.alertService.showError('Could not complete reservation, please try again later.');
+      sandwich.quantityLeft += quantityToReserve;
     });
+  }
+
+  getSandwichPrice(sandwich: Sandwich, index: number) {
+    return sandwich.price * (this.quantityToReserve[index] || 1)
   }
 
   private filterByShowMine(showMine: boolean, userId: string): (value: Sandwich, index: number, array: Array<Sandwich>) => boolean {
